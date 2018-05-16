@@ -25,9 +25,8 @@ router.get('/', async function(req, res, next) {
       // Get the first 10 contacts in alphabetical order
       // by given name
       const result = await client
-      .api('/me/people/')
+      .api("/me/people$filter=startswith(displayName,'siddhraj')")
       .version("beta")
-      .filter("startswith(displayName, 'Siddhraj')")
       .top(10)
       .get();
 
