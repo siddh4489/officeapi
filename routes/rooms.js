@@ -27,7 +27,7 @@ router.get('/', async function(req, res, next) {
       .api('/me/findRooms')
       .version("beta")
       .get();
-      alert(JSON.stringify(result.value));
+      console.log(JSON.stringify(result.value));
       parms.messages = result.value;
       res.render('rooms', parms);
     } catch (err) {
