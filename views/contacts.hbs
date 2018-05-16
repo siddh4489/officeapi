@@ -4,18 +4,12 @@
   <thead class="thead-light">
     <th scope="col">Name</th>
     <th scope="col">Email addresses</th>
-    <th scope="col">Email addresses</th>
-    <th scope="col">Email addresses</th>
-
   </thead>
   <tbody>
     {{#each contacts}}
       <tr>
         <td>{{this.displayName}}</td>
         <td>{{this.userPrincipalName}}</td>
-        <td>{{this.emailAddresses}}</td>
-        <td>{{this.emailAddresses.address}}</td>
-
       </tr>
     {{/each}}
   </tbody>
