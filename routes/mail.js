@@ -25,7 +25,8 @@ router.get('/', async function(req, res, next) {
       // Get the 10 newest messages from inbox
       const result = await client
       .api('/me/mailfolders/inbox/messages')
-      .top(10)
+      .version("beta")
+      .top(5)
       .select('subject,from,receivedDateTime,isRead')
       .orderby('receivedDateTime DESC')
       .get();
