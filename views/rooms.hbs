@@ -10,7 +10,7 @@
   {{messages}}
     {{#each messages}}
       <tr class="{{#unless this.isRead}}table-primary{{/unless}}">
-        <td title="{{this.from.emailAddress.address}}">{{this.from.emailAddress.name}}</td>
+        <td title="{{this.location}}">{{this.location}}</td>
         <td>{{this.name}}</td>
         <td>{{this.address}}</td>
       </tr>
