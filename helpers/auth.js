@@ -6,7 +6,7 @@ const credentials = {
   },
   auth: {
     tokenHost: 'https://login.microsoftonline.com',
-    authorizePath: 'common/oauth2/v2.0/authorize?prompt=consent',
+    authorizePath: 'common/oauth2/v2.0/authorize',
     tokenPath: 'common/oauth2/v2.0/token'
   }
 };
