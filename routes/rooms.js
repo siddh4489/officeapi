@@ -25,6 +25,7 @@ router.get('/', async function(req, res, next) {
       // Get the 10 newest messages from inbox
       const result = await client
       .api('/me/findRooms')
+      .version("beta")
       .get();
 
       parms.messages = result.value;
