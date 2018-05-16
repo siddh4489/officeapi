@@ -25,10 +25,8 @@ router.get('/', async function(req, res, next) {
       // Get the first 10 contacts in alphabetical order
       // by given name
       const result = await client
-      .api('/me/contacts')
-      .top(10)
-      .select('givenName,surname,emailAddresses')
-      .orderby('givenName ASC')
+      .api('/me/people/')
+      .version("beta")
       .get();
 
       parms.contacts = result.value;
