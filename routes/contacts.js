@@ -27,7 +27,8 @@ router.get('/', async function(req, res, next) {
       const result = await client
       .api('/me/people/')
       .version("beta")
-      .top(1)
+      .filter("startswith(displayName, 'Siddh')")
+      .top(10)
       .get();
 
       parms.contacts = result.value;
