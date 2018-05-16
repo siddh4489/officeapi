@@ -27,7 +27,7 @@ router.get('/', async function(req, res, next) {
       const result = await client
       .api('/me/people/')
       .version("beta")
-      .filter("startswith(displayName, 'Siddh')")
+      .filter("StartsWith(displayName, 'Siddh')")
       .top(10)
       .get();
 
