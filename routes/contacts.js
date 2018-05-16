@@ -27,7 +27,7 @@ router.get('/', async function(req, res, next) {
       const result = await client
       .api('/me/people/')
       .version("beta")
-      .filter("EndsWith(displayName, 'Atodaria')")
+      .filter("startswith(displayName, 'Siddhraj')")
       .top(10)
       .get();
 
