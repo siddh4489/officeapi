@@ -25,9 +25,9 @@ router.get('/', async function(req, res, next) {
       // Get the first 10 contacts in alphabetical order
       // by given name
       const result = await client
-      .api('/me/people/?$search=siddh and filter ne ""')
+      .api('/me/people/?$search=siddh')
       .version("beta")
-      .top(10)
+      .top(1)
       .get();
 
       parms.contacts = result.value;
