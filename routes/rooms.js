@@ -6,7 +6,7 @@ var graph = require('@microsoft/microsoft-graph-client');
 
 /* GET /mail */
 router.get('/', async function(req, res, next) {
-  let parms = { title: 'Inbox', active: { inbox: true } };
+  let parms = { title: 'Rooms', active: { rooms: true } };
 
   const accessToken = await authHelper.getAccessToken(req.cookies, res);
   const userName = req.cookies.graph_user_name;
@@ -24,14 +24,11 @@ router.get('/', async function(req, res, next) {
     try {
       // Get the 10 newest messages from inbox
       const result = await client
-      .api('/me/mailfolders/inbox/messages')
-      .top(10)
-      .select('subject,from,receivedDateTime,isRead')
-      .orderby('receivedDateTime DESC')
+      .api('/me/findroomlists')
       .get();
 
       parms.messages = result.value;
-      res.render('mail', parms);
+      res.render('rooms', parms);
     } catch (err) {
       parms.message = 'Error retrieving messages';
       parms.error = { status: `${err.code}: ${err.message}` };
