@@ -24,7 +24,7 @@ router.get('/', async function(req, res, next) {
     try {
       // Get the 10 newest messages from inbox
       const result = await client
-      .api('/me/findroomlists')
+      .api('/me/findRooms')
       .get();
 
       parms.messages = result.value;
