@@ -7,11 +7,12 @@
     <th scope="col">Received</th>
   </thead>
   <tbody>
+  {{messages}}
     {{#each messages}}
       <tr class="{{#unless this.isRead}}table-primary{{/unless}}">
         <td title="{{this.from.emailAddress.address}}">{{this.from.emailAddress.name}}</td>
-        <td>{{this.subject}}</td>
-        <td>{{this.receivedDateTime}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.address}}</td>
       </tr>
     {{/each}}
   </tbody>
