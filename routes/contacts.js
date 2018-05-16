@@ -27,7 +27,7 @@ router.get('/', async function(req, res, next) {
       const result = await client
       .api('/me/people/')
       .version("beta")
-      .top(5)
+      .top(1)
       .get();
 
       parms.contacts = result.value;
