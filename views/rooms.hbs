@@ -2,15 +2,13 @@
 <h2>Inbox</h2>
 <table class="table">
   <thead class="thead-light">
-    <th scope="col">From</th>
-    <th scope="col">Subject</th>
-    <th scope="col">Received</th>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
   </thead>
   <tbody>
   {{messages}}
     {{#each messages}}
       <tr class="{{#unless this.isRead}}table-primary{{/unless}}">
-        <td title="{{this.location}}">{{this.location}}</td>
         <td>{{this.name}}</td>
         <td>{{this.address}}</td>
       </tr>
