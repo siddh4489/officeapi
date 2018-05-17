@@ -54,4 +54,35 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const io = require('socket.io')(server);
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
+const apiai = require('apiai')(APIAI_TOKEN);
+io.on('connection', function(socket) {
+  socket.on('chat message', (text) => {
+    console.log('Message: ' + text);
+
+    // Get a reply from API.ai
+
+    let apiaiReq = apiai.textRequest(text, {
+      sessionId: APIAI_SESSION_ID
+    });
+
+    apiaiReq.on('response', (response) => {
+      let aiText = response.result.fulfillment.speech;
+      console.log('Bot reply: ' + aiText);
+      socket.emit('bot reply', aiText);
+    });
+
+    apiaiReq.on('error', (error) => {
+      console.log(error);
+    });
+
+    apiaiReq.end();
+
+  });
+});
+
 module.exports = app;
