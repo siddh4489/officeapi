@@ -6,7 +6,7 @@ var graph = require('@microsoft/microsoft-graph-client');
 
 /* GET /contacts */
 router.get('/', async function(req, res, next) {
-  let parms = { title: 'Contacts', active: { contacts: true } };
+  let parms = { title: 'events', active: { events: true } };
 
   const accessToken = await authHelper.getAccessToken(req.cookies, res);
   const userName = req.cookies.graph_user_name;
@@ -31,11 +31,11 @@ router.get('/', async function(req, res, next) {
         "content": "Does late morning work for you?"
     },
     "start": {
-        "dateTime": "2018-05-20T12:00:00",
+        "dateTime": "2018-05-25T12:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2018-05-20T14:00:00",
+        "dateTime": "2018-05-25T14:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "location": {
@@ -43,8 +43,14 @@ router.get('/', async function(req, res, next) {
     },
     "attendees": [{
         "emailAddress": {
-            "address": "vishal_pawar@symantec.com",
-            "name": "Vishal Pawar"
+            "address": "Shantinath_Patil@symantec.com",
+            "name": "Shantinath Patil"
+        },
+        "type": "required"
+    },{
+        "emailAddress": {
+            "address": "Nishant_Wavhal@symantec.com",
+            "name": "Nishant Wavhal"
         },
         "type": "required"
     },{"emailAddress": {
@@ -60,17 +66,9 @@ router.get('/', async function(req, res, next) {
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });
-      const result = await client
-      .api('/me/people/?$search=siddh')
-      .version("beta")
-      .top(1)
-      .get();
-
-      parms.contacts = result.value;
-      console.log('People--->'+JSON.stringify(result.value));
-      console.log('-----------------------------------------------------');
-      console.log('People--->'+result.value.emailAddresses);
-      res.render('contacts', parms);
+      
+      
+      res.redirect('/');
     } catch (err) {
       parms.message = 'Error retrieving contacts';
       parms.error = { status: `${err.code}: ${err.message}` };
