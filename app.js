@@ -75,7 +75,32 @@ io.on('connection', function (socket) {
   console.log("connected");  
 });
 
-   
+const apiai = require('apiai')(APIAI_TOKEN);
+
+io.on('connection', function(socket) {
+  socket.on('chat message', (text) => {
+    console.log('Message: ' + text);
+
+    // Get a reply from API.ai
+
+    let apiaiReq = apiai.textRequest(text, {
+      sessionId: APIAI_SESSION_ID
+    });
+
+    apiaiReq.on('response', (response) => {
+      let aiText = response.result.fulfillment.speech;
+      console.log('Bot reply: ' + aiText);
+      socket.emit('bot reply', aiText);
+    });
+
+    apiaiReq.on('error', (error) => {
+      console.log(error);
+    });
+
+    apiaiReq.end();
+
+  });
+});   
 
 /*const http = require('http').Server(app);
 const io = require('socket.io')(http);
