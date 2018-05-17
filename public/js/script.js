@@ -29,9 +29,16 @@ recognition.addEventListener('result', (e) => {
   outputYou.textContent = text;
   console.log('Confidence: ' + e.results[0][0].confidence);
   if(text == 'rooms'){
-     alert(1);
-     document.location.href = '/rooms';
-  }
+     document.location.href = '/'+text;
+  }elseif(text == 'calendar'){
+    document.location.href = '/'+text;
+  }elseif(text == 'mail'){
+    document.location.href = '/'+text;
+  }elseif(text =='contacts'){
+    document.location.href = '/'+text;
+  }elseif(text=='set up meeting' || text == 'set event'){
+     document.location.href = '/event';
+  }  
   console.log('Text--->'+text);
   socket.emit('chat message', text);
 });
