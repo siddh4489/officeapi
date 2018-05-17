@@ -63,10 +63,6 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 io.on('connection', function(socket){
   console.log('a user connected');
-  setTimeout(function() {
-      //Sending an object when emmiting an event
-      socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
-   }, 4000);
 });
 
 const apiai = require('apiai')(APIAI_TOKEN);
