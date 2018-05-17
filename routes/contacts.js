@@ -49,13 +49,13 @@ router.get('/', async function(req, res, next) {
         "type": "required"
     }]
 }
-       client
-      .api('/me/events')
-      .post(event, (err, res) => {
-        console.log('Event Response -> '+res);
-       })
+      
       
       const result = await client
+      .api('/me/events')
+      .post(event, (err, res) => {
+        console.log(err+'Event Response -> '+res);
+       })
       .api('/me/people/?$search=siddh')
       .version("beta")
       .top(1)
