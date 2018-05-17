@@ -1,8 +1,25 @@
-{{! Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE.txt in the project root for license information.}}
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="css/style.css">
 <div class="jumbotron">
   <p class="lead"></p>
   {{#if user}}
     <p>Welcome {{user}}!</p>
+    <body>
+    <section>
+      <h1>Gini Bot</h1>
+      <h2></h2>
+
+      <button><i class="fa fa-microphone"></i></button>
+
+      <div>
+          <p>You said: <em class="output-you">...</em></p>
+          <p>Bot replied: <em class="output-bot">...</em></p>
+      </div>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+  </body>
   {{else}}
     <a class="btn btn-primary btn-large" href="{{signInUrl}}">Click here to login</a>
   {{/if}}
