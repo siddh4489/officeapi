@@ -6,7 +6,7 @@ var graph = require('@microsoft/microsoft-graph-client');
 
 /* GET /contacts */
 router.get('/', async function(req, res, next) {
-  let parms = { title: 'events', active: { events: true } };
+  let parms = { title: 'event', active: { event: true } };
 
   const accessToken = await authHelper.getAccessToken(req.cookies, res);
   const userName = req.cookies.graph_user_name;
