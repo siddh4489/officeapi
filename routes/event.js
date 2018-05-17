@@ -25,7 +25,7 @@ router.get('/', async function(req, res, next) {
       // Get the first 10 contacts in alphabetical order
       // by given name
       var event = {
-    "subject": "Let's go for lunch",
+    "subject": "Test mail by BOT",
     "body": {
         "contentType": "HTML",
         "content": "Does late morning work for you?"
