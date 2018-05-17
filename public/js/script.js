@@ -28,6 +28,10 @@ recognition.addEventListener('result', (e) => {
 
   outputYou.textContent = text;
   console.log('Confidence: ' + e.results[0][0].confidence);
+  if(text == 'rooms'){
+     alert(1);
+     document.location.href = '/rooms';
+  }
   console.log('Text--->'+text);
   socket.emit('chat message', text);
 });
