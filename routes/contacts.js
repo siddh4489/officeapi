@@ -43,10 +43,16 @@ router.get('/', async function(req, res, next) {
     },
     "attendees": [{
         "emailAddress": {
-            "address": "vishal_pawar@symantec.com;cr.pneb2.2.chime.4@symantec.com",
+            "address": "vishal_pawar@symantec.com",
             "name": "Vishal Pawar"
         },
         "type": "required"
+    },
+     {"emailAddress": {
+        "address": "cr.pneb2.2.chime.4@symantec.com",
+        "name": "CR.PNEB2.2.Chime.4"
+      },
+      "type": "Required"
     }]
 }
       
