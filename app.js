@@ -65,12 +65,11 @@ app.use(function(err, req, res, next) {
 
    
 
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-//const server = require('http').createServer();
-//const io = require('socket.io')(server);
+//const http = require('http').Server(app);
+//const io = require('socket.io')(http);
 
-io.on('connection', function(socket){
+
+/*io.on('connection', function(socket){
   console.log('a user connected');
 });
 
@@ -98,6 +97,6 @@ io.on('connection', function(socket) {
     apiaiReq.end();
 
   });
-});
+});*/
 
 module.exports = app;
