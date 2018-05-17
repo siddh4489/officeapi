@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 require('dotenv').config();
+const APIAI_TOKEN = process.env.APIAI_TOKEN;
+const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
 
 var index = require('./routes/index');
 var authorize = require('./routes/authorize');
