@@ -5,6 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var socketio = require('socket.io');
+var http = require('http');
 
 
 
@@ -61,17 +63,27 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var server = http.Server(app);
+var io = socketio.listen(server);
+var port = process.env.PORT || 8080;
 
+server.listen(port, function(){
+  console.log("Express server listening on port " + port);
+});
+
+io.on('connection', function (socket) {
+  console.log("connected");  
+});
 
    
 
-const http = require('http').Server(app);
+/*const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 
 io.on('connection', function(socket){
   console.log('A user connected');
-});
+});*/
 
 /*const apiai = require('apiai')(APIAI_TOKEN);
 io.on('connection', function(socket) {
