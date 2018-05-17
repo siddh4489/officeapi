@@ -31,19 +31,19 @@ router.get('/', async function(req, res, next) {
         "content": "Does late morning work for you?"
     },
     "start": {
-        "dateTime": "2018-06-15T12:00:00",
+        "dateTime": "2018-05-18T12:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2018-06-15T14:00:00",
+        "dateTime": "2018-05-18T14:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "location": {
-        "displayName": "Harry's Bar"
+        "displayName": "CR.PNEB2.2.Chime.4"
     },
     "attendees": [{
         "emailAddress": {
-            "address": "vishal_pawar@symantec.com",
+            "address": "vishal_pawar@symantec.com;cr.pneb2.2.chime.4@symantec.com",
             "name": "Vishal Pawar"
         },
         "type": "required"
@@ -51,15 +51,16 @@ router.get('/', async function(req, res, next) {
 }
       
       
-      const result = await client
+      const result1 = await client
       .api('/me/events')
       .post(event, (err, res) => {
-        console.log(JSON.stringify(err)+'Event Response -> '+res);
+        console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });
-      //.api('/me/people/?$search=siddh')
-      //.version("beta")
-      //.top(1)
-      //.get();
+      const result = await client
+      .api('/me/people/?$search=siddh')
+      .version("beta")
+      .top(1)
+      .get();
 
       parms.contacts = result.value;
       console.log('People--->'+JSON.stringify(result.value));
