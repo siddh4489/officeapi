@@ -12,7 +12,7 @@ recognition.lang = 'en-US';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector('.fa-microphone').addEventListener('click', () => {
   recognition.start();
 });
 
