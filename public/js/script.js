@@ -30,13 +30,13 @@ recognition.addEventListener('result', (e) => {
   console.log('Confidence: ' + e.results[0][0].confidence);
   if(text == 'rooms'){
      document.location.href = '/'+text;
-  }elseif(text == 'calendar'){
+  }else if(text == 'calendar'){
     document.location.href = '/'+text;
-  }elseif(text == 'mail'){
+  }else if(text == 'mail'){
     document.location.href = '/'+text;
-  }elseif(text =='contacts'){
+  }else if(text =='contacts'){
     document.location.href = '/'+text;
-  }elseif(text=='set up meeting' || text == 'set event'){
+  }else if(text=='set up meeting' || text == 'set event'){
      document.location.href = '/event';
   }  
   console.log('Text--->'+text);
