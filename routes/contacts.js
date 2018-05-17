@@ -24,42 +24,7 @@ router.get('/', async function(req, res, next) {
     try {
       // Get the first 10 contacts in alphabetical order
       // by given name
-      var event = {
-    "subject": "Let's go for lunch",
-    "body": {
-        "contentType": "HTML",
-        "content": "Does late morning work for you?"
-    },
-    "start": {
-        "dateTime": "2018-05-20T12:00:00",
-        "timeZone": "Pacific Standard Time"
-    },
-    "end": {
-        "dateTime": "2018-05-20T14:00:00",
-        "timeZone": "Pacific Standard Time"
-    },
-    "location": {
-        "displayName": "CR.PNEB2.2.Chime.4"
-    },
-    "attendees": [{
-        "emailAddress": {
-            "address": "vishal_pawar@symantec.com",
-            "name": "Vishal Pawar"
-        },
-        "type": "required"
-    },{"emailAddress": {
-        "address": "cr.pneb2.2.chime.4@symantec.com",
-        "name": "CR.PNEB2.2.Chime.4"
-      }
-    }]
-}
-      
-      
-      const result1 = await client
-      .api('/me/events')
-      .post(event, (err, res) => {
-        console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
-       });
+  
       const result = await client
       .api('/me/people/?$search=siddh')
       .version("beta")
