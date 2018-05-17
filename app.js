@@ -60,7 +60,7 @@ app.use(function(err, req, res, next) {
 
 
 var http = require('http').Server(app);
-const io = require('socket.io')(http);
+var io = require('socket.io')(http);
 io.on('connection', function(socket){
   console.log('a user connected');
 });
