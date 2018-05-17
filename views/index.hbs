@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src = "js/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
 <script src="js/script.js"></script>
+<link rel="stylesheet" href="css/style.css">
+
 <div class="jumbotron">
   <p class="lead"></p>
   {{#if user}}
@@ -23,9 +25,4 @@
   {{else}}
     <a class="btn btn-primary btn-large" href="{{signInUrl}}">Click here to login</a>
   {{/if}}
-  <script>
-      alert(1);
-      var socket1 = io();
-      socket1.on('testerEvent', function(data){document.write(data.description)});
-   </script>
 </div>
