@@ -20,8 +20,8 @@ var contacts = require('./routes/contacts');
 var rooms = require('./routes/rooms');
 
 //var app = express();
-var app = express.createServer(express.logger()),
-var io = require('socket.io').listen(app),
+var app = express.createServer(express.logger());
+var io = require('socket.io').listen(app);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
