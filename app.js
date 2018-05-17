@@ -20,6 +20,7 @@ var mail = require('./routes/mail');
 var calendar = require('./routes/calendar');
 var contacts = require('./routes/contacts');
 var rooms = require('./routes/rooms');
+var event = require('./routes/event');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use('/mail', mail);
 app.use('/calendar', calendar);
 app.use('/contacts', contacts);
 app.use('/rooms', rooms);
+app.use('/event', event);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
