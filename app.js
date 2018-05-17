@@ -20,7 +20,7 @@ var contacts = require('./routes/contacts');
 var rooms = require('./routes/rooms');
 
 //var app = express();
-var app = express.createServer(express.logger());
+var app = express.createServer();
 var io = require('socket.io').listen(app);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
