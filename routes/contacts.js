@@ -31,11 +31,11 @@ router.get('/', async function(req, res, next) {
         "content": "Does late morning work for you?"
     },
     "start": {
-        "dateTime": "2017-04-15T12:00:00",
+        "dateTime": "2018-06-15T12:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2017-04-15T14:00:00",
+        "dateTime": "2018-06-15T14:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "location": {
@@ -43,8 +43,8 @@ router.get('/', async function(req, res, next) {
     },
     "attendees": [{
         "emailAddress": {
-            "address": "samanthab@contoso.onmicrosoft.com",
-            "name": "Samantha Booth"
+            "address": "vishal_pawar@symantec.com",
+            "name": "Vishal Pawar"
         },
         "type": "required"
     }]
