@@ -31,11 +31,11 @@ router.get('/', async function(req, res, next) {
         "content": "Does late morning work for you?"
     },
     "start": {
-        "dateTime": "2018-05-19T12:00:00",
+        "dateTime": "2018-05-20T12:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2018-05-19T14:00:00",
+        "dateTime": "2018-05-20T14:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "location": {
@@ -47,6 +47,10 @@ router.get('/', async function(req, res, next) {
             "name": "Vishal Pawar"
         },
         "type": "required"
+    },{"emailAddress": {
+        "address": "cr.pneb2.2.chime.4@symantec.com",
+        "name": "CR.PNEB2.2.Chime.4"
+      }
     }]
 }
       
