@@ -65,15 +65,15 @@ app.use(function(err, req, res, next) {
 
    
 
-//const http = require('http').Server(app);
-//const io = require('socket.io')(http);
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 
-/*io.on('connection', function(socket){
-  console.log('a user connected');
+io.on('connection', function(socket){
+  console.log('A user connected');
 });
 
-const apiai = require('apiai')(APIAI_TOKEN);
+/*const apiai = require('apiai')(APIAI_TOKEN);
 io.on('connection', function(socket) {
   socket.on('chat message', (text) => {
     console.log('Message: ' + text);
