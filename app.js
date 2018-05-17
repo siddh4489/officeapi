@@ -65,10 +65,10 @@ app.use(function(err, req, res, next) {
 
    
 
-//var http = require('http').Server(app);
-//var io = require('socket.io')(http);
-const server = require('http').createServer();
-const io = require('socket.io')(server);
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+//const server = require('http').createServer();
+//const io = require('socket.io')(server);
 
 io.on('connection', function(socket){
   console.log('a user connected');
