@@ -19,9 +19,11 @@ var calendar = require('./routes/calendar');
 var contacts = require('./routes/contacts');
 var rooms = require('./routes/rooms');
 
-//var app = express();
-var app = express.createServer();
-var io = require('socket.io').listen(app);
+var app = express();
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -65,6 +67,8 @@ app.use(function(err, req, res, next) {
 
 //var http = require('http').Server(app);
 //var io = require('socket.io')(http);
+const server = require('http').createServer();
+const io = require('socket.io')(server);
 
 io.on('connection', function(socket){
   console.log('a user connected');
