@@ -54,12 +54,12 @@ router.get('/', async function(req, res, next) {
       const result = await client
       .api('/me/events')
       .post(event, (err, res) => {
-        console.log(err+'Event Response -> '+res);
-       })
-      .api('/me/people/?$search=siddh')
-      .version("beta")
-      .top(1)
-      .get();
+        console.log(JSON.stringify(err)+'Event Response -> '+res);
+       });
+      //.api('/me/people/?$search=siddh')
+      //.version("beta")
+      //.top(1)
+      //.get();
 
       parms.contacts = result.value;
       console.log('People--->'+JSON.stringify(result.value));
