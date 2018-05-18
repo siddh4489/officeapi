@@ -30,14 +30,18 @@ recognition.addEventListener('result', (e) => {
   console.log('Confidence: ' + e.results[0][0].confidence);
   if(text == 'rooms'){
      document.location.href = '/'+text;
+     outputBot.textContent = 'Done';
   }else if(text == 'calendar'){
     document.location.href = '/'+text;
+    outputBot.textContent = 'Done';
   }else if(text == 'mail'){
     document.location.href = '/'+text;
+    outputBot.textContent = 'Done';
   }else if(text =='contacts'){
-    document.location.href = '/'+text;
+    document.location.href = '/'+text+'?q=siddhraj';
   }else if(text=='set up meeting' || text == 'set event'){
      document.location.href = '/event';
+     outputBot.textContent = 'Done';
   }  
   console.log('Text--->'+text);
   socket.emit('chat message', text);
