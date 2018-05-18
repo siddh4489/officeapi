@@ -4,8 +4,30 @@ var router = express.Router();
 var authHelper = require('../helpers/auth');
 var graph = require('@microsoft/microsoft-graph-client');
 
+function sortProperties(obj)
+{
+  // convert object into array
+	var sortable=[];
+
+	for(var key in obj)
+		if(obj.hasOwnProperty(key))
+			sortable.push([key, obj[key]]); // each item is an array in format [key, value]
+	
+	// sort items by value
+	sortable.sort(function(a, b)
+	{
+		var x=a[1],
+			y=b[1];
+		return x<y ? -1 : x>y ? 1 : 0;
+	});
+	return sortable; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+}
+
 /* GET /contacts */
 router.get('/', async function(req, res, next) {
+  
+  
+  
   let parms = { title: 'event', active: { event: true } };
 
   const accessToken = await authHelper.getAccessToken(req.cookies, res);
@@ -22,6 +44,8 @@ router.get('/', async function(req, res, next) {
     });
 
     try {
+      
+      
       // Get the first 10 contacts in alphabetical order
       // by given name
     console.log('----- event email ---'+req.param('person'));
@@ -63,14 +87,14 @@ router.get('/', async function(req, res, next) {
     console.log('Event Json----->'+JSON.stringify(event));
       
       
-      const result1 = await client
+      /*const result1 = await client
       .api('/me/events')
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
-       });
+       });*/
       
       
-      res.redirect('/');
+      //res.redirect('/');
     } catch (err) {
       parms.message = 'Error retrieving contacts';
       parms.error = { status: `${err.code}: ${err.message}` };
