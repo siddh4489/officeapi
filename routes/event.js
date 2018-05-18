@@ -112,14 +112,14 @@ var map1 = sortProperties(keyPoint);
     }]
 }
     
-   /* console.log('Event Json----->'+JSON.stringify(event));
+    console.log('Event Json----->'+JSON.stringify(event));
       
       
       const result1 = await client
       .api('/me/events')
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
-       });*/
+       });
       
       
       res.redirect('/');
