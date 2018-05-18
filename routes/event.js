@@ -40,11 +40,11 @@ router.get('/', async function(req, res, next) {
         "content": "Does late morning work for you?"
     },
     "start": {
-        "dateTime": "2018-05-29T12:00:00",
+        "dateTime": "2018-06-01T12:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2018-05-29T14:00:00",
+        "dateTime": "2018-06-01T14:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "location": {
@@ -52,8 +52,8 @@ router.get('/', async function(req, res, next) {
     },
     "attendees": [{
         "emailAddress": {
-            "address": "+result.value[0].userPrincipalName+",
-            "name": "+result.value[0].userPrincipalName+"
+            "address": "'+result.value[0].userPrincipalName+'",
+            "name": "'+result.value[0].userPrincipalName+'"
         },
         "type": "required"
     },{"emailAddress": {
