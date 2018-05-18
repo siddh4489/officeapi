@@ -49,7 +49,8 @@ recognition.addEventListener('result', (e) => {
                     url: '/'+text,						
                     success: function(data) {
                         alert('success');
-                        alert(JSON.stringify(data));
+                        //alert(JSON.stringify(data));
+			jQuery("#result").text(data);    
                     },
 	    	   error  : function(err) { 
 			   alert('error');
