@@ -40,7 +40,19 @@ recognition.addEventListener('result', (e) => {
     document.location.href = '/'+text;
     outputBot.textContent = 'Done';
   }else if(text =='contacts'){
-    document.location.href = '/'+text+'?q=siddhraj';
+    
+    //document.location.href = '/'+text;
+    alert(1);
+    $.ajax({
+						type: 'GET',
+            contentType: 'application/json',
+                    url: '/'+text,						
+                    success: function(data) {
+                        console.log('success');
+                        console.log(JSON.stringify(data));
+                    }
+   });
+    
   }else if(text.includes("meeting") || text.includes("event")){
      document.location.href = '/event?person='+text;
      outputBot.textContent = 'Done';
