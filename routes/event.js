@@ -40,11 +40,11 @@ router.get('/', async function(req, res, next) {
         "content": "Does late morning work for you?"
     },
     "start": {
-        "dateTime": "2018-05-27T12:00:00",
+        "dateTime": "2018-05-29T12:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2018-05-27T14:00:00",
+        "dateTime": "2018-05-29T14:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "location": {
