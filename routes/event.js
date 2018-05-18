@@ -48,8 +48,36 @@ router.get('/', async function(req, res, next) {
       
       // Get the first 10 contacts in alphabetical order
       // by given name
-    console.log('----- event email ---'+req.param('person'));
-    var emailSearch = req.param('person').split("with");
+    console.log('----- String ---'+req.param('person'));
+    var reserveKey = ["with","subject","body","room","time"];
+    var keyPoint = new Object();
+    var finalMap = new Object();
+    var myString = req.param('person');
+for(var i=0;i<reserveKey.length;i++){
+    if(myString.lastIndexOf(reserveKey[i]) != -1){
+       keyPoint[reserveKey[i]] = myString.lastIndexOf(reserveKey[i])+reserveKey[i].length;
+    }
+}
+
+
+var map1 = sortProperties(keyPoint);    
+   for(var key in map1){
+     finalMap[String(map1[key]).split(',')[0]] = myString.slice(String(map1[key]).split(',')[1],(map1[++key]==undefined?myString.length:String(map1[key]).split(',')[1]-String(map1[key]).split(',')[0].length));
+    }  
+
+  console.log(' Name '+finalMap['with']);
+  console.log(' Subject '+finalMap['subject']);	
+	console.log(' Body '+finalMap['body']);	     
+	    console.log(' room '+finalMap['room']);	
+	      console.log(' time '+finalMap['time']);	    
+
+
+
+
+	    
+	    
+	    
+    var emailSearch = finalMap['with'];
     const result = await client
       .api('/me/people/?$search='+emailSearch[1])
       .version("beta")
