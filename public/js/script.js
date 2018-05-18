@@ -39,16 +39,14 @@ recognition.addEventListener('result', (e) => {
   }else if(text == 'mail'){
     document.location.href = '/'+text;
     outputBot.textContent = 'Done';
-  }else if(text =='contacts'){
+  }else if(text =='contacts' || text =='contact'){
     
     //document.location.href = '/'+text;
-    alert(1);
     $.ajax({
 						type: 'GET',
             contentType: 'application/json',
                     url: '/'+text,						
                     success: function(data) {
-                        alert('success');
                         //alert(JSON.stringify(data));
 			jQuery("#result").text(data);    
                     },
@@ -58,14 +56,17 @@ recognition.addEventListener('result', (e) => {
                     }
 
    });
-    
+   socket.emit('chat message', 'Contacts fetched');
+   outputResult.textContent = 'Contacts fetched';
+
   }else if(text.includes("meeting") || text.includes("event")){
      document.location.href = '/event?person='+text;
      outputBot.textContent = 'Done';
   }  
   console.log('Text--->'+text);
-  socket.emit('chat message', text);
-  outputResult.textContent = 'Siddhraj Here';
+  //socket.emit('chat message', text);
+   //outputResult.textContent = 'Siddhraj Here';
+
 });
 
 recognition.addEventListener('speechend', () => {
