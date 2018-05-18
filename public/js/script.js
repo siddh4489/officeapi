@@ -40,7 +40,7 @@ recognition.addEventListener('result', (e) => {
   }else if(text =='contacts'){
     document.location.href = '/'+text+'?q=siddhraj';
   }else if(text.includes("meeting") || text.includes("event")){
-     document.location.href = '/event?person='text;
+     document.location.href = '/event?person='+text;
      outputBot.textContent = 'Done';
   }  
   console.log('Text--->'+text);
