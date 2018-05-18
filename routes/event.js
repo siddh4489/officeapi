@@ -56,7 +56,7 @@ router.get('/', async function(req, res, next) {
             "name": result.value[0].displayName
         },
         "type": "required"
-    }
+    
     }]
 }
     
