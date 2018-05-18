@@ -35,7 +35,9 @@ router.get('/', async function(req, res, next) {
       console.log('People--->'+JSON.stringify(result.value));
       console.log('-----------------------------------------------------');
       
-      res.render('index', parms);
+      //res.render('index', parms);
+      res.status(200).json('{"msg":"successfully"}');
+
     } catch (err) {
       parms.message = 'Error retrieving contacts';
       parms.error = { status: `${err.code}: ${err.message}` };
