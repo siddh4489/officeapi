@@ -56,10 +56,7 @@ router.get('/', async function(req, res, next) {
             "name": result.value[0].displayName
         },
         "type": "required"
-    },{"emailAddress": {
-        "address": "cr.pneb2.2.chime.4@symantec.com",
-        "name": "CR.PNEB2.2.Chime.4"
-      }
+    }
     }]
 }
     
