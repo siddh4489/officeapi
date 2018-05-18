@@ -79,7 +79,7 @@ var map1 = sortProperties(keyPoint);
 	    
     var emailSearch = finalMap['with'];
     const result = await client
-      .api('/me/people/?$search='+emailSearch)
+      .api('/me/people/?$search='+emailSearch[1])
       .version("beta")
       .top(1)
       .get(); 
@@ -115,11 +115,11 @@ var map1 = sortProperties(keyPoint);
     console.log('Event Json----->'+JSON.stringify(event));
       
       
-      const result1 = await client
+     /* const result1 = await client
       .api('/me/events')
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
-       });
+       });*/
       
       
       res.redirect('/');
