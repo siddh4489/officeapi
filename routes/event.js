@@ -40,11 +40,11 @@ router.get('/', async function(req, res, next) {
         "content": "Does late morning work for you?"
     },
     "start": {
-        "dateTime": "2018-06-02T12:00:00",
+        "dateTime": "2018-06-04T12:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2018-06-02T14:00:00",
+        "dateTime": "2018-06-04T14:00:00",
         "timeZone": "Pacific Standard Time"
     },
     "location": {
@@ -62,6 +62,8 @@ router.get('/', async function(req, res, next) {
       }
     }]
 }
+    
+    console.log('Event Json----->'+JSON.stringify(event));
       
       
       const result1 = await client
