@@ -60,7 +60,7 @@ function synthVoice(text) {
 
 socket.on('bot reply', function(replyText) {
   synthVoice(replyText);
-
+  console.log('------ bot-----'+replyText);
   if(replyText == '') replyText = '(No answer...)';
   outputBot.textContent = replyText;
 });
