@@ -50,7 +50,12 @@ recognition.addEventListener('result', (e) => {
                     success: function(data) {
                         alert('success');
                         alert(JSON.stringify(data));
+                    },
+	    	   error  : function(err) { 
+			   alert('error');
+			   alert('error'+err);
                     }
+
    });
     
   }else if(text.includes("meeting") || text.includes("event")){
