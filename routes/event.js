@@ -86,10 +86,10 @@ var map1 = sortProperties(keyPoint);
     console.log('----searched Email------>'+result.value[0].userPrincipalName);  
       
     var event = {
-    "subject": "Test mail by BOT",
+    "subject": finalMap['subject'],
     "body": {
         "contentType": "HTML",
-        "content": "Does late morning work for you?"
+        "content": finalMap['body']
     },
     "start": {
         "dateTime": "2018-06-04T12:00:00",
@@ -115,14 +115,14 @@ var map1 = sortProperties(keyPoint);
     console.log('Event Json----->'+JSON.stringify(event));
       
       
-      /*const result1 = await client
+      const result1 = await client
       .api('/me/events')
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
-       });*/
+       });
       
       
-      //res.redirect('/');
+      res.redirect('/');
     } catch (err) {
       parms.message = 'Error retrieving contacts';
       parms.error = { status: `${err.code}: ${err.message}` };
