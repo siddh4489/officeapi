@@ -57,7 +57,7 @@ recognition.addEventListener('result', (e) => {
 
    });
    socket.emit('bot reply', 'Contacts fetched.');
-   socket.emit('chat message', 'Contacts fetched');
+   //socket.emit('chat message', 'Contacts fetched');
    outputResult.textContent = 'Contacts fetched';
 
   }else if(text.includes("meeting") || text.includes("event")){
