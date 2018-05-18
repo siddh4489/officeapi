@@ -56,6 +56,7 @@ recognition.addEventListener('result', (e) => {
                     }
 
    });
+   socket.emit('bot reply', 'Contacts fetched.');
    socket.emit('chat message', 'Contacts fetched');
    outputResult.textContent = 'Contacts fetched';
 
@@ -88,5 +89,5 @@ socket.on('bot reply', function(replyText) {
   synthVoice(replyText);
   console.log('------ bot-----'+replyText);
   if(replyText == '') replyText = '(No answer...)';
-  //outputBot.textContent = replyText;
+  outputBot.textContent = replyText;
 });
