@@ -41,6 +41,7 @@ recognition.addEventListener('result', (e) => {
   }  
   console.log('Text--->'+text);
   socket.emit('chat message', text);
+  outputBot.textContent = 'Siddhraj Here';
 });
 
 recognition.addEventListener('speechend', () => {
@@ -62,5 +63,5 @@ socket.on('bot reply', function(replyText) {
   synthVoice(replyText);
   console.log('------ bot-----'+replyText);
   if(replyText == '') replyText = '(No answer...)';
-  outputBot.textContent = replyText;
+  //outputBot.textContent = replyText;
 });
