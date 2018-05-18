@@ -4,6 +4,7 @@ const socket = io();
 
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
+const outputResult = document.querySelector('.output-result');
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -45,7 +46,7 @@ recognition.addEventListener('result', (e) => {
   }  
   console.log('Text--->'+text);
   socket.emit('chat message', text);
-  //outputBot.textContent = 'Siddhraj Here';
+  outputResult.textContent = 'Siddhraj Here';
 });
 
 recognition.addEventListener('speechend', () => {
