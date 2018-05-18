@@ -24,7 +24,15 @@ router.get('/', async function(req, res, next) {
     try {
       // Get the first 10 contacts in alphabetical order
       // by given name
-      var event = {
+    console.log('----- event email ---'+req.param('person'));
+    var emailSearch = req.param('person').split("with");
+    const result = await client
+      .api('/me/people/?$search='+emailSearch[1])
+      .version("beta")
+      .top(1)
+      .get(); 
+      
+    var event = {
     "subject": "Test mail by BOT",
     "body": {
         "contentType": "HTML",
