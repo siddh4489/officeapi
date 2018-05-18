@@ -48,8 +48,8 @@ recognition.addEventListener('result', (e) => {
             contentType: 'application/json',
                     url: '/'+text,						
                     success: function(data) {
-                        console.log('success');
-                        console.log(JSON.stringify(data));
+                        alert('success');
+                        alert(JSON.stringify(data));
                     }
    });
     
