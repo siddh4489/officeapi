@@ -39,13 +39,13 @@ recognition.addEventListener('result', (e) => {
     outputBot.textContent = 'Done';
   }else if(text =='contacts'){
     document.location.href = '/'+text+'?q=siddhraj';
-  }else if(text=='set up meeting' || text == 'set event'){
-     document.location.href = '/event';
+  }else if(text.includes("meeting") || text.includes("event")){
+     document.location.href = '/event?person'=text;
      outputBot.textContent = 'Done';
   }  
   console.log('Text--->'+text);
   socket.emit('chat message', text);
-  outputBot.textContent = 'Siddhraj Here';
+  //outputBot.textContent = 'Siddhraj Here';
 });
 
 recognition.addEventListener('speechend', () => {
