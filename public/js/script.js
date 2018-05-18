@@ -45,7 +45,7 @@ recognition.addEventListener('result', (e) => {
     $.ajax({
 						type: 'GET',
             contentType: 'application/json',
-                    url: '/'+text,						
+                    url: '/contacts',						
                     success: function(data) {
                         //alert(JSON.stringify(data));
 			jQuery("#result").text(data);    
