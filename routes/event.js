@@ -31,6 +31,7 @@ router.get('/', async function(req, res, next) {
       .version("beta")
       .top(1)
       .get(); 
+    console.log('----searched Email------>'+result.value[0].userPrincipalName);  
       
     var event = {
     "subject": "Test mail by BOT",
@@ -51,20 +52,8 @@ router.get('/', async function(req, res, next) {
     },
     "attendees": [{
         "emailAddress": {
-            "address": "Muzaffer_Pathan@symantec.com",
-            "name": "Mujju"
-        },
-        "type": "required"
-    },{
-        "emailAddress": {
-            "address": "Rupal_Parmar@symantec.com",
-            "name": "Rupal"
-        },
-        "type": "required"
-    },{
-        "emailAddress": {
-            "address": "Tejal_Kamble@symantec.com",
-            "name": "Tejal"
+            "address": "+result.value[0].userPrincipalName+",
+            "name": "+result.value[0].userPrincipalName+"
         },
         "type": "required"
     },{"emailAddress": {
