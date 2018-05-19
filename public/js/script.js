@@ -48,7 +48,7 @@ recognition.addEventListener('result', (e) => {
                     url: '/contacts',						
                     success: function(data) {
                         //alert(JSON.stringify(data));
-			jQuery("#result").text(data);    
+			jQuery("#result").html(data);    
                     },
 	    	   error  : function(err) { 
 			   alert('error');
