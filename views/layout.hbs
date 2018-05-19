@@ -41,7 +41,7 @@
         <ul class="navbar-nav justify-content-end">
           {{#if user}}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user}}</a>
+              <a  style="color:white;"class= dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user}}</a>
               <div class="dropdown-menu">
                   <a class="dropdown-item" href="/authorize/signout">Sign Out</a>
               </div>
@@ -60,8 +60,8 @@
 
   {{#if user}}
     <section>
-      <div style="text-align:center;">
-      <a href="#" class="botvoice"><img src="/images/g.png" style="width:35px;max-width: 100%;"/></a>
+      <div style="text-align:center;" class="circle">
+      <p><a href="#" class="botvoice"><img src="/images/g.png" style="width:35px;max-width: 100%;"/></a></p>
       </div>
       <div style="padding-top:20px;">
           <p>You said: <em class="output-you">...</em></p>
@@ -79,6 +79,27 @@
  {{{body}}}
 </main>
     
+<style>
+.circle{
+    position:relative;
+    background:white;
+    border: solid 1px black;
+    width:100px;
+    height:100px;
+    text-align:center;    
+    -webkit-border-radius: 50px;  
+    -moz-border-radius: 50px;  
+    border-radius: 50px;
+}
+.circle p
+{
+    font:italic 52px Georgia;
+    color:#fff;
+    vertical-align:middle;
+    height:50px; 
+    position: inherit;
+}
+</style>
     <!-- Bootstrap core JavaScript
     ================================================== -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
