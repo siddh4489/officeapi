@@ -7,13 +7,11 @@
     <title>{{title}}</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    
-
+    <link rel='stylesheet' href='/stylesheets/style.css' /> 
   </head>
   <body>
     <!-- Nav bar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <nav class="navbar navbar-expand-md navbar-dark bg-ylw mb-4">
       <a class="navbar-brand" href="/">Genie</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,11 +57,11 @@
     <main role="main" class="container">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="jumbotron">
-  <p class="lead"></p>
+<div class="">
+ 
   {{#if user}}
     <p>Welcome {{user}}!</p>
-    <body>
+   
     <section>
       <div style="text-align:center;">
       <button class="botvoice"><img src="/images/voice-icon.png" style="width:50px;max-width: 100%;height: auto;margin-top: 200px auto"/></button>
@@ -76,20 +74,24 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.6.0/socket.io.min.js"></script>
     <script src="js/script.js"></script>
-  </body>
   {{else}}
     <a class="btn btn-primary btn-large" href="{{signInUrl}}">Click here to login</a>
   {{/if}}
     
 </div>
 <hr> 
-      {{{body}}}
-    </main>
+ {{{body}}}
+</main>
     
     <!-- Bootstrap core JavaScript
     ================================================== -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <style>
+  .bg-ylw{
+  background-color : #e6b800;
+  }
+  </style>
   </body>
 </html>
