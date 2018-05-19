@@ -36,7 +36,7 @@ router.get('/', async function(req, res, next) {
       console.log('-----------------------------------------------------');
       
       //res.render('index', parms);
-      var resultData = '<Html><table><tr><td>abc</td></tr><tr><td>xyz</td></tr></table></html>';
+      var resultData = '<Html><table style="border: 1px solid black;"><tr><td>abc</td></tr><tr><td>xyz</td></tr></table></html>';
       res.status(200).json(JSON.stringify(resultData));
 
     } catch (err) {
