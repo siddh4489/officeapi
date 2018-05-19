@@ -48,7 +48,7 @@
             </li>
           {{else}}
             <li class="nav-item">
-              <a class="nav-link" href="{{signInUrl}}">Sign In</a>
+              <a style="color:white" href="{{signInUrl}}">Sign In</a>
             </li>
           {{/if}}
         </ul>
@@ -60,8 +60,8 @@
 
   {{#if user}}
     <section>
-      <div style="text-align:center;" class="circle">
-      <p><a href="#" class="botvoice"><img src="/images/g.png" style="width:35px;max-width: 100%;"/></a></p>
+      <div style="text-align:center;">
+      <a href="#" class="botvoice"><img src="/images/g.png" style="width:35px;max-width: 100%;"/></a>
       </div>
       <div style="padding-top:20px;">
           <p>You said: <em class="output-you">...</em></p>
@@ -72,34 +72,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.6.0/socket.io.min.js"></script>
     <script src="js/script.js"></script>
   {{else}}
-    <a class="btn btn-primary btn-large" href="{{signInUrl}}">Click here to login</a>
+    <!--<a class="btn btn-primary btn-large" href="{{signInUrl}}">Click here to login</a>-->
   {{/if}}
 
 <hr> 
  {{{body}}}
 </main>
     
-<style>
-.circle{
-    position:relative;
-    background:white;
-    border: solid 1px black;
-    width:100px;
-    height:100px;
-    text-align:center;    
-    -webkit-border-radius: 50px;  
-    -moz-border-radius: 50px;  
-    border-radius: 50px;
-}
-.circle p
-{
-    font:italic 52px Georgia;
-    color:#fff;
-    vertical-align:middle;
-    height:50px; 
-    position: inherit;
-}
-</style>
     <!-- Bootstrap core JavaScript
     ================================================== -->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
