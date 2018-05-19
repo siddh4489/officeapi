@@ -37,7 +37,7 @@ router.get('/', async function(req, res, next) {
       
       //res.render('index', parms);
       var resultData = '<Html><table style="width:100%;border:1px solid black;"><tr><td>abcd</td></tr><tr><td>pxyz</td></tr></table></html>';
-      res.status(200).json(JSON.stringify(resultData));
+      res.status(200).json(resultData);
 
     } catch (err) {
       parms.message = 'Error retrieving contacts';
