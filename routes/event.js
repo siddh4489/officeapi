@@ -79,13 +79,13 @@ var map1 = sortProperties(keyPoint);
 	    
     var emailSearch = finalMap['with'];
     console.log('-- email search--'+emailSearch);	    
-    if(emailSearch != undefined && emailSearch != ''){
+    //if(emailSearch != undefined && emailSearch != ''){
       const result = await client
       .api('/me/people/?$search='+emailSearch)
       .version("beta")
       .top(1)
       .get(); 
-     }   
+    // }   
    
 /*      
     var event = {
