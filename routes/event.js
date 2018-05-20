@@ -95,7 +95,7 @@ var map1 = sortProperties(keyPoint);
       if(result.value[0] !== undefined){
 	   console.log('--out mail --'+stage);
 	   console.log('--out mail 1--'+this.mailto);
-	   if((stage === 'in progress' || stage=== 'Initial') && (this.mailto == undefined)){
+	   if(this.mailto == undefined){
 		   console.log('--in mail 1--');
 		   this.mailto = result.value[0].userPrincipalName;
 		   console.log('--in mail 1--'+this.mailto);
@@ -153,7 +153,7 @@ var map1 = sortProperties(keyPoint);
 	  if(finalMap['subject'] != undefined){
 	        console.log('--out subject 1--'+stage);  
                 console.log('--out subject 2--'+finalMap['subject']);    
-		if((stage === 'in progress' || stage=== 'Initial') && (finalMap['subject']!= undefined)){
+		if(finalMap['subject']!= undefined){
 	  		resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
 			console.log('--in subject 2--'+resultData);
 		}	
