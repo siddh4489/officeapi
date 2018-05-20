@@ -170,7 +170,7 @@ var map1 = sortProperties(keyPoint);
 	  	resultData+= '<tr><td>Body:</td><td>'+this.mailbody+'</td></tr>'; 
 	  }
 	   if(stage == 'ready to send' && (myString === 'send' || myString === 'yes')){
-		  bobmsg ='meeting set successfully with '+personName+'. Have a good day';
+		  bobmsg ='meeting set successfully with '+this.personName+'. Have a good day';
 		  stage = 'Initial';
 		  this.mailto = null;
 		  this.mailbody =null;
