@@ -78,13 +78,14 @@ var map1 = sortProperties(keyPoint);
 	    
 	    
     var emailSearch = finalMap['with'];
-   // if(emailSearch != undefined && emailSearch != ''){
+    console.log('-- email search--'+emailSearch);	    
+    if(emailSearch != undefined && emailSearch != ''){
       const result = await client
       .api('/me/people/?$search='+emailSearch)
       .version("beta")
       .top(1)
       .get(); 
-   //  }   
+     }   
    
 /*      
     var event = {
@@ -123,7 +124,8 @@ var map1 = sortProperties(keyPoint);
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });*/
-      
+         console.log('-- email result--'+result);	    
+ 
       var resultData = '<Html><table style="width:100%;border:1px solid black;">';
 	   if(result != undefined){
 	    	resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
