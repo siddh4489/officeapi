@@ -47,7 +47,6 @@ recognition.addEventListener('result', (e) => {
             contentType: 'application/json',
                     url: '/contacts',						
                     success: function(data) {
-                        //alert(JSON.stringify(data));
 			jQuery("#result").html(data);    
                     },
 	    	   error  : function(err) { 
@@ -60,11 +59,24 @@ recognition.addEventListener('result', (e) => {
    //socket.emit('chat message', 'Contacts fetched');
   synthVoice('Contacts fetched.');
   outputBot.textContent = 'Contacts fetched.'	  
-   outputResult.textContent = 'Contacts fetched';
+  outputResult.textContent = 'Contacts fetched';
 
   }else if(text.includes("meeting") || text.includes("event")){
-     document.location.href = '/event?person='+text;
-     outputBot.textContent = 'Done';
+     //document.location.href = '/event?person='+text;
+     $.ajax({
+	    type: 'GET',
+            contentType: 'application/json',
+                    url: '/event?person='+text,					
+                    success: function(data) {
+			jQuery("#result").html(data);    
+                    },
+	    	   error  : function(err) { 
+			   alert('error');
+			   alert('error'+err);
+                    }
+
+   });	  
+     //outputBot.textContent = 'Done';
   }  
   console.log('Text--->'+text);
   //socket.emit('chat message', text);
