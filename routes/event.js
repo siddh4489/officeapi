@@ -53,6 +53,8 @@ router.get('/', async function(req, res, next) {
     var keyPoint = new Object();
     var finalMap = new Object();
     var myString = req.param('person');
+    var stage =req.param('stage');
+    console.log('----stage---'+stage);	    
 for(var i=0;i<reserveKey.length;i++){
     if(myString.lastIndexOf(reserveKey[i]) != -1){
        keyPoint[reserveKey[i]] = myString.lastIndexOf(reserveKey[i])+reserveKey[i].length;
@@ -64,17 +66,6 @@ var map1 = sortProperties(keyPoint);
    for(var key in map1){
      finalMap[String(map1[key]).split(',')[0]] = myString.slice(String(map1[key]).split(',')[1],(map1[++key]==undefined?myString.length:String(map1[key]).split(',')[1]-String(map1[key]).split(',')[0].length));
     }  
-
-  console.log(' Name '+finalMap['with']);
-  console.log(' Subject '+finalMap['subject']);	
-	console.log(' Body '+finalMap['body']);	     
-	    console.log(' room '+finalMap['room']);	
-	      console.log(' time '+finalMap['time']);	    
-
-
-
-
-	    
 	    
     var resultData = '<Html><table style="width:100%;border:1px solid black;">';	    
     var emailSearch = finalMap['with'];
