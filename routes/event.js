@@ -168,17 +168,16 @@ var map1 = sortProperties(keyPoint);
 		stage = 'ready to send';
 	  }
 	    
-	    if(stage = 'ready to send'){
+	    if(stage == 'ready to send'){
 		  bobmsg ='meeting set successfully with '+personName+'. Have a good day';
 		  stage = 'Initial';
 	     }
 	  resultData+= '</table></html>';  
-      if(stage =='Initial'){
-       stage='in progress'; 
-     }	    
+	      if(stage =='Initial'){
+	       stage='in progress'; 
+	     }	    
       res.status(200).json({bob:bobmsg,consoleoutput:resultData,state:stage});	    
       
-     // res.redirect('/');
     } catch (err) {
       console.log('--err---'+err.message);  
       console.log('--err stack--'+err.stack);	    
