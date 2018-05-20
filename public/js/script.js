@@ -69,9 +69,9 @@ recognition.addEventListener('result', (e) => {
             contentType: 'application/json',
                     url: '/event?person='+text,					
                     success: function(data) {
-			alert(data);
-			alert(data.msg1);    
-			jQuery("#result").html(data);    
+			synthVoice(data.bob);
+ 		        outputBot.textContent = data.bob;    
+			jQuery("#result").html(data.result);    
                     },
 	    	   error  : function(err) { 
 			   alert('error');
