@@ -5,7 +5,7 @@ const socket = io();
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
 const outputResult = document.querySelector('.output-result');
-outputResult.textContent = 'Result are Here';
+outputResult.textContent = 'Ready';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -64,11 +64,12 @@ recognition.addEventListener('result', (e) => {
   }else */
   //if(text.includes("meeting") || text.includes("event")){
      //document.location.href = '/event?person='+text;
-     //jQuery("#result").val();
+     var point = jQuery(".output-result").val();
+     alert(point);	
      $.ajax({
 	    type: 'GET',
             contentType: 'application/json',
-                    url: '/event?person='+text+'&stage='+outputResult,					
+                    url: '/event?person='+text+'&stage='+point,					
                     success: function(data) {
 			synthVoice(data.bob);
  		        outputBot.textContent = data.bob;
