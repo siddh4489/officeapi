@@ -64,8 +64,9 @@ recognition.addEventListener('result', (e) => {
   }else */
   //if(text.includes("meeting") || text.includes("event")){
      //document.location.href = '/event?person='+text;
-     var point = jQuery("#point").val();
+     var point = jQuery("#point").text();
      alert(point);	
+     alert(jQuery(".output-result").text());	
      $.ajax({
 	    type: 'GET',
             contentType: 'application/json',
