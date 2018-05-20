@@ -64,13 +64,15 @@ recognition.addEventListener('result', (e) => {
   }else */
   //if(text.includes("meeting") || text.includes("event")){
      //document.location.href = '/event?person='+text;
+     //jQuery("#result").val();
      $.ajax({
 	    type: 'GET',
             contentType: 'application/json',
-                    url: '/event?person='+text,					
+                    url: '/event?person='+text+'&stage='+outputResult,					
                     success: function(data) {
 			synthVoice(data.bob);
- 		        outputBot.textContent = data.bob;    
+ 		        outputBot.textContent = data.bob;
+			outputResult.textContent = data.state;    
 			jQuery("#result").html(data.consoleoutput);    
                     },
 	    	   error  : function(err) { 
