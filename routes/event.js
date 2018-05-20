@@ -78,6 +78,7 @@ var map1 = sortProperties(keyPoint);
 	    
     var resultData = '<Html><table style="width:100%;border:1px solid black;">';	    
     var emailSearch = finalMap['with'];
+   	    
     console.log('-- email search--'+emailSearch);
     if(emailSearch !== undefined && emailSearch != ' '){
 	    
@@ -147,7 +148,7 @@ var map1 = sortProperties(keyPoint);
 	  }	  
 	  resultData+= '</table></html>';  
 	    
-      res.status(200).json({bob:'meeting set successfully with '+result.value[0].displayName+'. Please check your calendar.',consoleoutput:resultData});	    
+      res.status(200).json({bob:'meeting set successfully with '+emailSearch+'. Please check your calendar.',consoleoutput:resultData});	    
       
      // res.redirect('/');
     } catch (err) {
