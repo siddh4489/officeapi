@@ -121,8 +121,15 @@ var map1 = sortProperties(keyPoint);
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });*/
       
+      var resultData = '<Html><table style="width:100%;border:1px solid black;">';
+	  resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
+	  resultData+= '<tr><td>Subject:</td><td>'+finalMap['body']+'</td></tr>';
+	  resultData+= '<tr><td>Body:</td><td>'+finalMap['subject']+'</td></tr>'; 
+	  resultData+= '</table></html>';  
+	    
+      res.status(200).json(resultData);	    
       
-      res.redirect('/');
+     // res.redirect('/');
     } catch (err) {
       parms.message = 'Error retrieving contacts';
       parms.error = { status: `${err.code}: ${err.message}` };
