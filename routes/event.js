@@ -4,8 +4,8 @@ var router = express.Router();
 var authHelper = require('../helpers/auth');
 var graph = require('@microsoft/microsoft-graph-client');
 var mailto;
-//var mailsubject;
-//var mailbody;
+var mailsubject;
+var mailbody;
 //var bobmsg;
 function sortProperties(obj)
 {
@@ -149,24 +149,32 @@ var map1 = sortProperties(keyPoint);
            	resultData+= '<tr><td>To:</td><td>'+this.mailto+'</td></tr>';
 	   }else{
           	bobmsg ='Tell me with email address';
-	   }	   
+	   }
 	  if(finalMap['subject'] != undefined){
+	  	this.mailsubject=finalMap['body']; 
+	  }   
+	    
+	  if(this.mailsubject != undefined){
 	        console.log('--out subject 1--'+stage);  
                 console.log('--out subject 2--'+finalMap['subject']);    
-		if(finalMap['subject']!= undefined){
-	  		resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
+	  		resultData+= '<tr><td>Subject:</td><td>'+this.mailsubject+'</td></tr>';
 			console.log('--in subject 2--'+resultData);
-		}	
 	  }else{
 		bobmsg =  'Please Help me with Subject line. It is required'
-	  }	  
+	  }
+	    
 	  if(finalMap['body'] != undefined){
-	  	resultData+= '<tr><td>Body:</td><td>'+finalMap['body']+'</td></tr>'; 
+	  	this.mailbody=finalMap['body']; 
+	  }  
+	  if(this.mailbody != undefined){
+	  	resultData+= '<tr><td>Body:</td><td>'+this.mailbody+'</td></tr>'; 
 	  }
 	   if(stage == 'ready to send' && (myString === 'send' || myString === 'yes')){
 		  bobmsg ='meeting set successfully with '+personName+'. Have a good day';
 		  stage = 'Initial';
 		  this.mailto = null;
+		  this.mailbody =null;
+		  this.mailsubject =null;
 		  resultData = 'Mail Sent Successfully'; 
 	     } 
 	  if(bobmsg == undefined){
