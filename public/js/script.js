@@ -5,7 +5,7 @@ const socket = io();
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
 const outputResult = document.querySelector('.output-result');
-outputResult.textContent = 'Intial';
+outputResult.textContent = 'Initial';
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
