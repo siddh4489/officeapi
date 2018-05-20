@@ -87,7 +87,8 @@ var map1 = sortProperties(keyPoint);
       .version("beta")
       .top(1)
       .get(); 
-	    
+	
+      console.log('---->'+result.value[0].userPrincipalName);	    
      }   
    
 /*      
