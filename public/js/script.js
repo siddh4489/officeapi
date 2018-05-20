@@ -71,7 +71,7 @@ recognition.addEventListener('result', (e) => {
                     success: function(data) {
 			synthVoice(data.bob);
  		        outputBot.textContent = data.bob;    
-			jQuery("#result").html(data.result);    
+			jQuery("#result").html(data.consoleoutput);    
                     },
 	    	   error  : function(err) { 
 			   alert('error');
