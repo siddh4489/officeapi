@@ -151,7 +151,8 @@ var map1 = sortProperties(keyPoint);
       
      // res.redirect('/');
     } catch (err) {
-      console.log('--err---'+err.message);    
+      console.log('--err---'+err.message);  
+      console.log('--err stack--'+err.stack);	    
       parms.message = 'Error retrieving contacts';
       parms.error = { status: `${err.code}: ${err.message}` };
       parms.debug = JSON.stringify(err.body, null, 2);
