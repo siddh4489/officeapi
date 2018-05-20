@@ -136,18 +136,18 @@ var map1 = sortProperties(keyPoint);
           if(mailto != undefined){
            	resultData+= '<tr><td>To:</td><td>'+mailto+'</td></tr>';
 	   }else{
-          	bobmsg ='Email address is required. Please give me detail';
+          	bobmsg ='Tell me with email address';
 	   }	   
 	  if(finalMap['subject'] != undefined){
 	  	resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
 	  }else{
-		bobmsg =  'Email subject is required. Please give me detail'
+		bobmsg =  'Please Help me with Subject line. It is required'
 	  }	  
 	  if(finalMap['body'] != undefined){
 	  	resultData+= '<tr><td>Body:</td><td>'+finalMap['body']+'</td></tr>'; 
 	  }
 	    if(bobmsg == undefined){
-		    bobmsg ='meeting set successfully with '+personName+'. Please check your calendar.';
+		    bobmsg ='meeting set successfully with '+personName+'. Have a good day';
 	     }
 	  resultData+= '</table></html>';  
 	    
