@@ -6,6 +6,7 @@ var graph = require('@microsoft/microsoft-graph-client');
 var mailto;
 var mailsubject;
 var mailbody;
+var personName;
 //var bobmsg;
 function sortProperties(obj)
 {
@@ -75,7 +76,6 @@ var map1 = sortProperties(keyPoint);
     var emailSearch = finalMap['with'];
    	    
     console.log('-- email search--'+emailSearch);
-    var personName=''	    
     
     
     //var mailto;
@@ -95,13 +95,13 @@ var map1 = sortProperties(keyPoint);
       if(result.value[0] !== undefined){
 	   console.log('--out mail --'+stage);
 	   console.log('--out mail 1--'+this.mailto);
-	   if(this.mailto == undefined){
+	   //if(this.mailto != undefined){
 		   console.log('--in mail 1--');
 		   this.mailto = result.value[0].userPrincipalName;
 		   console.log('--in mail 1--'+this.mailto);
-		   personName = result.value[0].displayName;	    
+		   this.personName = result.value[0].displayName;	    
 
-	      }   
+	    //  }   
            //resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
       }	
       //console.log('---->'+result.value[0].userPrincipalName);	    
@@ -151,7 +151,7 @@ var map1 = sortProperties(keyPoint);
           	bobmsg ='Tell me with email address';
 	   }
 	  if(finalMap['subject'] != undefined){
-	  	this.mailsubject=finalMap['body']; 
+	  	this.mailsubject=finalMap['subject']; 
 	  }   
 	    
 	  if(this.mailsubject != undefined){
