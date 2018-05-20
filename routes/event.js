@@ -79,14 +79,14 @@ var map1 = sortProperties(keyPoint);
 	    
     var emailSearch = finalMap['with'];
     console.log('-- email search--'+emailSearch);	    
-    //if(emailSearch !== 'undefined' && emailSearch != ''){
+    if(emailSearch !== 'undefined'){
       console.log('-- email search 1--'+emailSearch);	        
       const result = await client
       .api('/me/people/?$search='+emailSearch)
       .version("beta")
       .top(1)
       .get(); 
-    // }   
+     }   
    
 /*      
     var event = {
@@ -128,11 +128,11 @@ var map1 = sortProperties(keyPoint);
          //console.log('-- email result--'+result);	    
  
       var resultData = '<Html><table style="width:100%;border:1px solid black;">';
-	   if(result !== 'undefined'){
-	         console.log('-- reuslt search--'+result);	    
+	   //if(result !== 'undefined'){
+	   //      console.log('-- reuslt search--'+result);	    
 
-	    	resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
-	   }	   
+	    //	resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
+	   //}	   
 	  if(finalMap['subject'] != undefined){
 	  	resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
 	  }
