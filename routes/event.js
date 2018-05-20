@@ -125,7 +125,9 @@ var map1 = sortProperties(keyPoint);
        });*/
       
       var resultData = '<Html><table style="width:100%;border:1px solid black;">';
-	  resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
+	   if(result != undefined){
+	    	resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
+	   }	   
 	  if(finalMap['subject'] != undefined){
 	  	resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
 	  }
