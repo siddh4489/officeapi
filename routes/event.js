@@ -79,7 +79,7 @@ var map1 = sortProperties(keyPoint);
     var resultData = '<Html><table style="width:100%;border:1px solid black;">';	    
     var emailSearch = finalMap['with'];
     console.log('-- email search--'+emailSearch);
-    if(emailSearch !== undefined && emailSearch != ''){
+    if(emailSearch !== undefined && emailSearch != ' '){
 	    
       console.log('-- email search 1--'+emailSearch);
        const result = await client	    	    
