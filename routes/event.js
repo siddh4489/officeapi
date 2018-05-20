@@ -73,11 +73,14 @@ var map1 = sortProperties(keyPoint);
    	    
     console.log('-- email search--'+emailSearch);
     var personName=''	    
-    stage='in progress'; 
+    
+   if(stage == 'initial'){
+    
     var mailto;
     var mailsubject;
     var mailbody;
-    var bobmsg;	    
+    var bobmsg;	 
+    }    
     if(emailSearch !== undefined && emailSearch != ' '){
 	    
       console.log('-- email search 1--'+emailSearch);
@@ -88,7 +91,9 @@ var map1 = sortProperties(keyPoint);
       .get(); 
 	
       if(result.value[0] !== undefined){
-	   mailto = result.value[0].userPrincipalName;   
+	   if(stage != 'in progress'){
+		mailto = result.value[0].userPrincipalName;      
+	      }   
            //resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
       }	
       personName = result.value[0].displayName;	    
@@ -148,9 +153,12 @@ var map1 = sortProperties(keyPoint);
 	  }
 	    if(bobmsg == undefined){
 		    bobmsg ='meeting set successfully with '+personName+'. Have a good day';
+		    stage = 'ready to send';
 	     }
 	  resultData+= '</table></html>';  
-	    
+      if(stage=='initial'){
+       stage='in progress'; 
+     }	    
       res.status(200).json({bob:bobmsg,consoleoutput:resultData,state:stage});	    
       
      // res.redirect('/');
