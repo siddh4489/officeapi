@@ -3,7 +3,10 @@ var express = require('express');
 var router = express.Router();
 var authHelper = require('../helpers/auth');
 var graph = require('@microsoft/microsoft-graph-client');
-
+var mailto;
+var mailsubject;
+var mailbody;
+var bobmsg;
 function sortProperties(obj)
 {
   // convert object into array
@@ -74,13 +77,12 @@ var map1 = sortProperties(keyPoint);
     console.log('-- email search--'+emailSearch);
     var personName=''	    
     
-   if(stage == 'initial'){
     
-    var mailto;
-    var mailsubject;
-    var mailbody;
+    //var mailto;
+    //var mailsubject;
+    //var mailbody;
     var bobmsg;	 
-    }    
+       
     if(emailSearch !== undefined && emailSearch != ' '){
 	    
       console.log('-- email search 1--'+emailSearch);
@@ -91,7 +93,7 @@ var map1 = sortProperties(keyPoint);
       .get(); 
 	
       if(result.value[0] !== undefined){
-	   if(stage != 'in progress'){
+	   if((stage == 'in progress' || stage= 'initial') && (mailto =='')){
 		mailto = result.value[0].userPrincipalName;      
 	      }   
            //resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
@@ -144,7 +146,9 @@ var map1 = sortProperties(keyPoint);
           	bobmsg ='Tell me with email address';
 	   }	   
 	  if(finalMap['subject'] != undefined){
-	  	resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
+		if((stage == 'in progress' || stage= 'initial') && (finalMap['subject']=='')){
+	  		resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
+		}	
 	  }else{
 		bobmsg =  'Please Help me with Subject line. It is required'
 	  }	  
