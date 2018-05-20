@@ -36,7 +36,7 @@ router.get('/', async function(req, res, next) {
       console.log('-----------------------------------------------------');
       
       //res.render('index', parms);
-      var resultData = '<Html><table style="width:100%;border:1px solid black;"><tr><td>abcd</td></tr><tr><td>pxyz</td></tr></table></html>';
+      var resultData = '<Html><table style="width:100%;border:1px solid black;"><tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr></table></html>';
       res.status(200).json(resultData);
 
     } catch (err) {
