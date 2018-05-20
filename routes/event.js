@@ -141,7 +141,7 @@ var map1 = sortProperties(keyPoint);
 	  }	  
 	  resultData+= '</table></html>';  
 	    
-      res.status(200).json({bob:'meeting set successfully with '+personName+'. Please check your calendar.',consoleoutput:resultData});	    
+      res.status(200).json({bob:'meeting set successfully with '+personName+'. Please check your calendar.',consoleoutput:resultData,state:'preparing'});	    
       
      // res.redirect('/');
     } catch (err) {
