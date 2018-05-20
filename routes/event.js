@@ -93,8 +93,8 @@ var map1 = sortProperties(keyPoint);
       .get(); 
 	
       if(result.value[0] !== undefined){
-	   if((stage == 'in progress' || stage= 'initial') && (mailto =='')){
-		mailto = result.value[0].userPrincipalName;      
+	   if((stage == 'in progress' || stage= 'initial') && (this.mailto =='')){
+		this.mailto = result.value[0].userPrincipalName;      
 	      }   
            //resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
       }	
@@ -140,8 +140,8 @@ var map1 = sortProperties(keyPoint);
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });*/
          //console.log('-- email result--'+result);	    
-          if(mailto != undefined){
-           	resultData+= '<tr><td>To:</td><td>'+mailto+'</td></tr>';
+          if(this.mailto != undefined){
+           	resultData+= '<tr><td>To:</td><td>'+this.mailto+'</td></tr>';
 	   }else{
           	bobmsg ='Tell me with email address';
 	   }	   
