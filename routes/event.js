@@ -79,7 +79,7 @@ var map1 = sortProperties(keyPoint);
 	    
     var emailSearch = finalMap['with'];
     const result = await client
-      .api('/me/people/?$search='+emailSearch[1])
+      .api('/me/people/?$search='+emailSearch)
       .version("beta")
       .top(1)
       .get(); 
