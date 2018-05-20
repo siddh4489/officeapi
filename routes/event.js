@@ -163,9 +163,14 @@ var map1 = sortProperties(keyPoint);
 	  if(finalMap['body'] != undefined){
 	  	resultData+= '<tr><td>Body:</td><td>'+finalMap['body']+'</td></tr>'; 
 	  }
-	    if(bobmsg == undefined){
-		    bobmsg ='meeting set successfully with '+personName+'. Have a good day';
-		    stage = 'ready to send';
+	  if(bobmsg == undefined){
+		bobmsg ='Mail is ready to Send. Are you sure you want to send ?';  
+		stage = 'ready to send';
+	  }
+	    
+	    if(stage = 'ready to send'){
+		  bobmsg ='meeting set successfully with '+personName+'. Have a good day';
+		  stage = 'Initial';
 	     }
 	  resultData+= '</table></html>';  
       if(stage =='Initial'){
