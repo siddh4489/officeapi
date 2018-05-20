@@ -76,7 +76,7 @@ var map1 = sortProperties(keyPoint);
 
 	    
 	    
-	    
+    var resultData = '<Html><table style="width:100%;border:1px solid black;">';	    
     var emailSearch = finalMap['with'];
     console.log('-- email search--'+emailSearch);
     if(emailSearch !== undefined){
@@ -88,6 +88,9 @@ var map1 = sortProperties(keyPoint);
       .top(1)
       .get(); 
 	
+      if(result.value[0].userPrincipalName !== undefined){
+           resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
+      }		    
       //console.log('---->'+result.value[0].userPrincipalName);	    
      }   
    
@@ -130,7 +133,7 @@ var map1 = sortProperties(keyPoint);
        });*/
          //console.log('-- email result--'+result);	    
  
-      var resultData = '<Html><table style="width:100%;border:1px solid black;">';
+      
 	  // if(result.value[0].userPrincipalName !== 'undefined'){
 	  //       console.log('-- reuslt search--'+result);	    
 
