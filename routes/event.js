@@ -147,7 +147,7 @@ var map1 = sortProperties(keyPoint);
 	  }	  
 	  resultData+= '</table></html>';  
 	    
-      res.status(200).json(resultData);	    
+      res.status(200).json({msg1:"sid",msg2:"how are you"});	    
       
      // res.redirect('/');
     } catch (err) {
