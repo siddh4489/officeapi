@@ -30,7 +30,7 @@ recognition.addEventListener('result', (e) => {
 
   outputYou.textContent = text;
   console.log('Confidence: ' + e.results[0][0].confidence);
-  if(text == 'rooms'){
+  /*if(text == 'rooms'){
      document.location.href = '/'+text;
      outputBot.textContent = 'Done';
   }else if(text == 'calendar'){
@@ -43,7 +43,7 @@ recognition.addEventListener('result', (e) => {
     
     //document.location.href = '/'+text;
     $.ajax({
-						type: 'GET',
+	    type: 'GET',
             contentType: 'application/json',
                     url: '/contacts',						
                     success: function(data) {
@@ -61,7 +61,8 @@ recognition.addEventListener('result', (e) => {
   outputBot.textContent = 'Contacts fetched.'	  
   outputResult.textContent = 'Contacts fetched';
 
-  }else if(text.includes("meeting") || text.includes("event")){
+  }else */
+  //if(text.includes("meeting") || text.includes("event")){
      //document.location.href = '/event?person='+text;
      $.ajax({
 	    type: 'GET',
@@ -77,7 +78,7 @@ recognition.addEventListener('result', (e) => {
 
    });	  
      //outputBot.textContent = 'Done';
-  }  
+  //}  
   console.log('Text--->'+text);
   //socket.emit('chat message', text);
    //outputResult.textContent = 'Siddhraj Here';
