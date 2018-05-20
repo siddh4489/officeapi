@@ -86,8 +86,7 @@ var map1 = sortProperties(keyPoint);
       .get(); 
      }   
    
-    console.log('----searched Email------>'+result.value[0].userPrincipalName);  
-      
+/*      
     var event = {
     "subject": finalMap['subject'],
     "body": {
@@ -116,6 +115,7 @@ var map1 = sortProperties(keyPoint);
 }
     
     console.log('Event Json----->'+JSON.stringify(event));
+    */
       
       
      /* const result1 = await client
