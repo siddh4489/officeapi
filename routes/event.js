@@ -125,13 +125,13 @@ var map1 = sortProperties(keyPoint);
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });*/
-         console.log('-- email result--'+result);	    
+         //console.log('-- email result--'+result);	    
  
       var resultData = '<Html><table style="width:100%;border:1px solid black;">';
 	   if(result !== 'undefined'){
-	         console.log('-- reuslt search--'+result);	    
+	      //   console.log('-- reuslt search--'+result);	    
 
-	    	resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
+	    	//resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
 	   }	   
 	  if(finalMap['subject'] != undefined){
 	  	resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
