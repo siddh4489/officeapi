@@ -79,7 +79,7 @@ var map1 = sortProperties(keyPoint);
 	    
     var emailSearch = finalMap['with'];
     console.log('-- email search--'+emailSearch);
-    if(emailSearch !== 'undefined'){
+    if(emailSearch !== undefined){
       console.log('-- email search 1--'+emailSearch);
        const result = await client	    	    
       .api('/me/people/?$search='+emailSearch)
