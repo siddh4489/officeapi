@@ -88,7 +88,7 @@ var map1 = sortProperties(keyPoint);
       .top(1)
       .get(); 
 	
-      console.log('---->'+result.value[0].userPrincipalName);	    
+      //console.log('---->'+result.value[0].userPrincipalName);	    
      }   
    
 /*      
