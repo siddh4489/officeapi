@@ -166,7 +166,8 @@ var map1 = sortProperties(keyPoint);
 	   if(stage == 'ready to send'){
 		  bobmsg ='meeting set successfully with '+personName+'. Have a good day';
 		  stage = 'Initial';
-		  this.mailto = null; 
+		  this.mailto = null;
+		  resultData = 'Mail Sent Successfully'; 
 	     } 
 	  if(bobmsg == undefined){
 		bobmsg ='Mail is ready to Send. Are you sure you want to send ?';  
