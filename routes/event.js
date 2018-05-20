@@ -153,7 +153,7 @@ var map1 = sortProperties(keyPoint);
 	  if(finalMap['subject'] != undefined){
 	        console.log('--out subject 1--'+stage);  
                 console.log('--out subject 2--'+finalMap['subject']);    
-		if((stage === 'in progress' || stage=== 'Initial') && (finalMap['subject']== undefined)){
+		if((stage === 'in progress' || stage=== 'Initial') && (finalMap['subject']!= undefined)){
 	  		resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
 			console.log('--in subject 2--'+resultData);
 		}	
