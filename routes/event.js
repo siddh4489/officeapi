@@ -123,8 +123,12 @@ var map1 = sortProperties(keyPoint);
       
       var resultData = '<Html><table style="width:100%;border:1px solid black;">';
 	  resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
-	  resultData+= '<tr><td>Subject:</td><td>'+finalMap['body']+'</td></tr>';
-	  resultData+= '<tr><td>Body:</td><td>'+finalMap['subject']+'</td></tr>'; 
+	  if(finalMap['subject'] != undefined){
+	  	resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
+	  }
+	  if(finalMap['body'] != undefined){
+	  	resultData+= '<tr><td>Body:</td><td>'+finalMap['body']+'</td></tr>'; 
+	  }	  
 	  resultData+= '</table></html>';  
 	    
       res.status(200).json(resultData);	    
