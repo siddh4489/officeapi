@@ -54,6 +54,7 @@ router.get('/', async function(req, res, next) {
     var finalMap = new Object();
     var myString = req.param('person');
     var stage =req.param('stage');
+	  
     console.log('----stage---'+stage);	    
 for(var i=0;i<reserveKey.length;i++){
     if(myString.lastIndexOf(reserveKey[i]) != -1){
@@ -72,6 +73,11 @@ var map1 = sortProperties(keyPoint);
    	    
     console.log('-- email search--'+emailSearch);
     var personName=''	    
+    stage='in progress'; 
+    var mailto;
+    var mailsubject;
+    var mailbody;
+    var bobmsg;	    
     if(emailSearch !== undefined && emailSearch != ' '){
 	    
       console.log('-- email search 1--'+emailSearch);
@@ -82,7 +88,8 @@ var map1 = sortProperties(keyPoint);
       .get(); 
 	
       if(result.value[0] !== undefined){
-           resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
+	   mailto = result.value[0].userPrincipalName;   
+           //resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
       }	
       personName = result.value[0].displayName;	    
       //console.log('---->'+result.value[0].userPrincipalName);	    
@@ -126,22 +133,25 @@ var map1 = sortProperties(keyPoint);
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });*/
          //console.log('-- email result--'+result);	    
- 
-      
-	  // if(result.value[0].userPrincipalName !== 'undefined'){
-	  //       console.log('-- reuslt search--'+result);	    
-
-	  //  	resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
-	  // }	   
+          if(mailto != undefined){
+           	resultData+= '<tr><td>To:</td><td>'+mailto+'</td></tr>';
+	   }else{
+          	bobmsg ='Email address is required. Please give me detail';
+	   }	   
 	  if(finalMap['subject'] != undefined){
 	  	resultData+= '<tr><td>Subject:</td><td>'+finalMap['subject']+'</td></tr>';
-	  }
+	  }else{
+		bobmsg =  'Email subject is required. Please give me detail'
+	  }	  
 	  if(finalMap['body'] != undefined){
 	  	resultData+= '<tr><td>Body:</td><td>'+finalMap['body']+'</td></tr>'; 
-	  }	  
+	  }
+	    if(bobmsg == undefined){
+		    bobmsg ='meeting set successfully with '+personName+'. Please check your calendar.';
+	     }
 	  resultData+= '</table></html>';  
 	    
-      res.status(200).json({bob:'meeting set successfully with '+personName+'. Please check your calendar.',consoleoutput:resultData,state:'preparing'});	    
+      res.status(200).json({bob:bobmsg,consoleoutput:resultData,state:stage});	    
       
      // res.redirect('/');
     } catch (err) {
