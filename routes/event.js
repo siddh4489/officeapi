@@ -88,7 +88,7 @@ var map1 = sortProperties(keyPoint);
       .top(1)
       .get(); 
 	
-      if(result.value[0].userPrincipalName !== undefined){
+      if(result.value[0] !== undefined){
            resultData+= '<tr><td>To:</td><td>'+result.value[0].userPrincipalName+'</td></tr>';
       }		    
       //console.log('---->'+result.value[0].userPrincipalName);	    
