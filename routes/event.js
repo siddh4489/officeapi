@@ -32,6 +32,8 @@ function sortProperties(obj)
 /* GET /contacts */
 router.get('/', async function(req, res, next) {
   
+	
+	
   var rooms =[{"room":"chime",
   "name":"cr.pneb2.2.chime.4",
   "address":"cr.pneb2.2.chime.4@symantec.com"
@@ -76,7 +78,16 @@ router.get('/', async function(req, res, next) {
     var finalMap = new Object();
     var myString = req.param('person');
     var stage =req.param('stage');
-	  
+    
+	    if(stage == 'Initial'){
+		     this.mailto = null;
+  		     this.mailsubject = null;
+		     this.mailbody = null;
+		     this.personName = null;
+		     this.roomadd = null;
+		     this.roomname = null;
+	       }
+	    
     console.log('----stage---'+stage);	    
 for(var i=0;i<reserveKey.length;i++){
     if(myString.lastIndexOf(reserveKey[i]) != -1){
@@ -199,7 +210,7 @@ var map1 = sortProperties(keyPoint);
 	  		resultData+= '<tr><td>Conference Room:</td><td>'+this.roomname+'</td></tr>';
 			console.log('--room--'+this.roomname);
 	  }else{
-		if(bobmsg != undefined){  
+		if(bobmsg == undefined){  
 		    bobmsg =  'Please Select Conference Room for meeting.';
 		}	
 	  }  
