@@ -166,7 +166,9 @@ var map1 = sortProperties(keyPoint);
 	  console.log('wow-- this.room--'+finalMap['room']);  
 	  if(finalMap['room'] != undefined){
 		 for(i = 0; i< rooms.length; i++){
-		 	console.log(finalMap['room']+'----wow-- rooms[i].name--'+rooms[i].name);  
+		 	console.log(finalMap['room']+'----wow-- rooms[i].name--'+rooms[i].room); 
+		        console.log(finalMap['room'].length+'----wow-- rooms[i].name--'+(rooms[i].room).length);  
+ 
 		 	if(rooms[i].room === finalMap['room']){
 				console.log('-- in room--'+rooms[i].address);
 				this.roomadd=rooms[i].address;
