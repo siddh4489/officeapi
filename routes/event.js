@@ -98,8 +98,8 @@ var map1 = sortProperties(keyPoint);
 	        for(i = 0; i< result.value.length; i++){    
 			console.log('-- search result-->'+result.value[i].displayName);
 			if((result.value[i].displayName).includes(emailSearch)){
-				this.personName = data[i].displayName;
-				this.mailto =data[i].userPrincipalName;
+				this.personName = result.value[i].displayName;
+				this.mailto = result.value[i].userPrincipalName;
 		        }
 		           
 		}
