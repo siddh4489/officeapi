@@ -95,14 +95,21 @@ var map1 = sortProperties(keyPoint);
       if(result.value[0] !== undefined){
 	   console.log('--out mail --'+stage);
 	   console.log('--out mail 1--'+this.mailto);
-	        for(i = 0; i< result.value.length; i++){    
+	      if(result.value.length>1){
+	      	for(i = 0; i< result.value.length; i++){    
 			console.log('-- search result-->'+result.value[i].displayName);
 			if((result.value[i].displayName).includes(emailSearch)){
+			        console.log('-- search result-->'+result.value[i].userPrincipalName);
 				this.personName = result.value[i].displayName;
 				this.mailto = result.value[i].userPrincipalName;
 		        }
 		           
-		}
+		} 
+	      }else{
+		      this.personName = result.value[0].displayName;
+		      this.mailto = result.value[0].userPrincipalName;
+		 }
+	        
 
 		   console.log('--in mail 1--');
 		   //this.mailto = result.value[0].userPrincipalName;
