@@ -31,7 +31,7 @@ router.get('/', async function(req, res, next) {
       var http = require('http');
       var body;
       const result = await client
-      http.get('/me/findRooms', function (response) {
+        http.get('https://graph.microsoft.com/beta/me/findRooms', function (response) {
         response.on('data', function (chunk) {
             body+=chunk;
         });
@@ -40,7 +40,7 @@ router.get('/', async function(req, res, next) {
             console.log('room body lenght'+body.length);
          });
     }).on('error', function(e) {
-        console.log('ERROR: ' + e.message);
+        console.log(' room ERROR: ' + e.message);
     });
       
       
