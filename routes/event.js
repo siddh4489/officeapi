@@ -107,35 +107,8 @@ var map1 = sortProperties(keyPoint);
       //console.log('---->'+result.value[0].userPrincipalName);	    
      }   
    
-  /*    
-    var event = {
-    "subject": finalMap['subject'],
-    "body": {
-        "contentType": "HTML",
-        "content": finalMap['body']
-    },
-    "start": {
-        "dateTime": "2018-06-04T12:00:00",
-        "timeZone": "Pacific Standard Time"
-    },
-    "end": {
-        "dateTime": "2018-06-04T14:00:00",
-        "timeZone": "Pacific Standard Time"
-    },
-    "location": {
-        "displayName": "CR.PNEB2.2.Chime.4"
-    },
-    "attendees": [{
-        "emailAddress": {
-            "address": result.value[0].userPrincipalName,
-            "name": result.value[0].displayName
-        },
-        "type": "required"
     
-    }]
-}
-    
-    console.log('Event Json----->'+JSON.stringify(event));*/
+   
     
       
       
@@ -149,7 +122,7 @@ var map1 = sortProperties(keyPoint);
           if(this.mailto != undefined){
            	resultData+= '<tr><td>To:</td><td>'+this.mailto+'</td></tr>';
 	   }else{
-          	bobmsg ='Tell me with email address';
+          	bobmsg ='Tell me email address';
 	   }
 	  if(finalMap['subject'] != undefined){
 	  	this.mailsubject=finalMap['subject']; 
@@ -170,12 +143,42 @@ var map1 = sortProperties(keyPoint);
 	  if(this.mailbody != undefined){
 	  	resultData+= '<tr><td>Body:</td><td>'+this.mailbody+'</td></tr>'; 
 	  }
+	    
+	   var event = {
+    "subject": (this.mailsubject != undefined?this.mailsubject:''),
+    "body": {
+        "contentType": "HTML",
+        "content": (this.mailbody != undefined?this.mailbody:'')
+    },
+    "start": {
+        "dateTime": "2018-06-04T12:00:00",
+        "timeZone": "Pacific Standard Time"
+    },
+    "end": {
+        "dateTime": "2018-06-04T14:00:00",
+        "timeZone": "Pacific Standard Time"
+    },
+    "location": {
+        "displayName": "CR.PNEB2.2.Chime.4"
+    },
+    "attendees": [{
+        "emailAddress": {
+            "address": (this.mailbody != undefined?this.mailbody:''),
+            "name": (this.personName != undefined?this.personName:'')
+        },
+        "type": "required"
+    
+    }]
+}
+    
+    console.log('Event Json----->'+JSON.stringify(event));  
+	    
 	   if(stage == 'ready to send' && (myString === 'send' || myString === 'yes')){
-		  /*const result1 = await client
+		  const result1 = await client
 		      .api('/me/events')
 		      .post(event, (err, res) => {
 			console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
-		       }); */
+		       }); 
 		   
 		  bobmsg ='meeting set successfully with '+this.personName+'. Have a good day';
 		  stage = 'Initial';
