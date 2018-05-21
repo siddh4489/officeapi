@@ -23,11 +23,26 @@ router.get('/', async function(req, res, next) {
 
     try {
       // Get the 10 newest messages from inbox
-      const result = await client
+      /*const result = await client
       .api('/me/findRooms')
       .version("beta")
       .top(1000)
-      .get();
+      .get();*/
+      var body;
+      const result = await client
+      http.get('/me/findRooms', function (response) {
+        response.on('data', function (chunk) {
+            body+=chunk;
+        });
+        response.on('end', function () {
+            console.log('room body'+ body);
+            console.log('room body lenght'+body.length);
+         });
+    }).on('error', function(e) {
+        console.log('ERROR: ' + e.message);
+    });
+      
+      
       console.log(JSON.stringify('---- rooms size-----'+result.value.length));
       parms.messages = result.value;
       res.render('rooms', parms);
