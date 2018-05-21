@@ -107,7 +107,7 @@ var map1 = sortProperties(keyPoint);
       //console.log('---->'+result.value[0].userPrincipalName);	    
      }   
    
-      
+  /*    
     var event = {
     "subject": finalMap['subject'],
     "body": {
@@ -135,7 +135,7 @@ var map1 = sortProperties(keyPoint);
     }]
 }
     
-    console.log('Event Json----->'+JSON.stringify(event));
+    console.log('Event Json----->'+JSON.stringify(event));*/
     
       
       
@@ -171,11 +171,11 @@ var map1 = sortProperties(keyPoint);
 	  	resultData+= '<tr><td>Body:</td><td>'+this.mailbody+'</td></tr>'; 
 	  }
 	   if(stage == 'ready to send' && (myString === 'send' || myString === 'yes')){
-		  const result1 = await client
+		  /*const result1 = await client
 		      .api('/me/events')
 		      .post(event, (err, res) => {
 			console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
-		       }); 
+		       }); */
 		   
 		  bobmsg ='meeting set successfully with '+this.personName+'. Have a good day';
 		  stage = 'Initial';
