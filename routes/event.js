@@ -7,6 +7,8 @@ var mailto;
 var mailsubject;
 var mailbody;
 var personName;
+var roomadd;
+var roomname;
 //var bobmsg;
 function sortProperties(obj)
 {
@@ -30,7 +32,23 @@ function sortProperties(obj)
 /* GET /contacts */
 router.get('/', async function(req, res, next) {
   
-  
+  var rooms =[{"room":"chime",
+  "name":"cr.pneb2.2.chime.4",
+  "address":"cr.pneb2.2.chime.4@symantec.com"
+  },
+  {"room":"clarinet",
+  "name":"CR.PNEB2.2.Clarinet.10",
+  "address":"cr.pneb2.2.clarinet.10@symantec.com"
+  },
+  {"room":"clarinet",
+  "name":"CR.PNEB2.2.Conga.8",
+  "address":"cr.pneb2.2.conga.8@symantec.com"
+  },
+  {"room":"Melodica",
+  "name":"CR.PNEB2.2.Melodica.16(VC)",
+  "address":"cr.pneb2.2.melodica.16@symantec.com"
+  }
+  ];
   
   let parms = { title: 'event', active: { event: true } };
 
@@ -140,7 +158,18 @@ var map1 = sortProperties(keyPoint);
 	   }
 	  if(finalMap['subject'] != undefined){
 	  	this.mailsubject=finalMap['subject']; 
-	  }   
+	  }
+	  if(finalMap['room'] != undefined){
+		  
+		 for(i = 0; i< rooms.length; i++){    
+		 	if(rooms[i].name.includes(finalMap['room']) || rooms[i].name === (finalMap['room'])){
+				this.roomadd=rooms[i].address;
+				this.roomname=rooms[i].name;
+		       }
+		 } 
+	  }  
+	  
+	  
 	    
 	  if(this.mailsubject != undefined){
 	        console.log('--out subject 1--'+stage);  
@@ -150,7 +179,12 @@ var map1 = sortProperties(keyPoint);
 	  }else{
 		bobmsg =  'Please Help me with Subject line. It is required'
 	  }
-	    
+	  if(this.roomadd != undefined){
+	  		resultData+= '<tr><td>Conference Room:</td><td>'+this.roomname+'</td></tr>';
+			console.log('--room--'+this.roomname);
+	  }else{
+		bobmsg =  'Please Select Conference Room for meeting.'
+	  }    
 	  if(finalMap['body'] != undefined){
 	  	this.mailbody=finalMap['body']; 
 	  }  
