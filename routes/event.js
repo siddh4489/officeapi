@@ -348,7 +348,7 @@ var map1 = sortProperties(keyPoint);
 		    if (splitData[4].toUpperCase().indexOf('P') != -1)
 			toTime = 12 + Number(splitData[4].match(/\d+/g).map(Number));
 		    else
-			toTime = splitData[4].match(/\d+/g).map(Number);
+			toTime = splitData[5].match(/\d+/g).map(Number);
 		    var now = new Date(month + ' ' + day + ', ' + year + ' ' + fromTime + ':00:00');
 		    this.starttime = now.format("isoDateTime");
 		    now = new Date(month + ' ' + day + ', ' + year + ' ' + toTime + ':00:00');
@@ -358,7 +358,11 @@ var map1 = sortProperties(keyPoint);
 	  if(this.starttime != undefined){
 	  	resultData+= '<tr><td>Start Time:</td><td>'+this.starttime+'</td></tr>'; 
 	        resultData+= '<tr><td>End Time:</td><td>'+this.endtime+'</td></tr>';   
-	  }    
+	  }else{
+		 if(this.roomadd != undefined){ 
+			bobmsg =  'Please specify Start time and End time.'; 
+		 }	 
+	  }	  
 	    
 	    
 	      
