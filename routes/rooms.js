@@ -26,8 +26,9 @@ router.get('/', async function(req, res, next) {
       const result = await client
       .api('/me/findRooms')
       .version("beta")
+      .top(1000)
       .get();
-      console.log(JSON.stringify(result.value.length));
+      console.log(JSON.stringify('---- rooms size-----'+result.value.length));
       parms.messages = result.value;
       res.render('rooms', parms);
     } catch (err) {
