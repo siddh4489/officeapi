@@ -169,7 +169,7 @@ var map1 = sortProperties(keyPoint);
 		 	console.log(finalMap['room']+'----wow-- rooms[i].name--'+rooms[i].room); 
 		        console.log(finalMap['room'].length+'----wow-- rooms[i].name--'+(rooms[i].room).length);  
  
-		 	if(rooms[i].room === finalMap['room']){
+		 	if(' '+rooms[i].room === finalMap['room']){
 				console.log('-- in room--'+rooms[i].address);
 				this.roomadd=rooms[i].address;
 				this.roomname=rooms[i].name;
