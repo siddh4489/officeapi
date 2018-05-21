@@ -163,7 +163,7 @@ var map1 = sortProperties(keyPoint);
     },
     "attendees": [{
         "emailAddress": {
-            "address": (this.mailbody != undefined?this.mailbody:''),
+            "address": (this.mailto != undefined?this.mailto:''),
             "name": (this.personName != undefined?this.personName:'')
         },
         "type": "required"
