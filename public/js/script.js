@@ -64,6 +64,10 @@ recognition.addEventListener('result', (e) => {
   }else */
   //if(text.includes("meeting") || text.includes("event")){
      //document.location.href = '/event?person='+text;
+	
+     if(text == 'logout'){
+	 document.location.href ='/authorize/signout';
+     }	
      var point = jQuery(".output-result").text();
      $.ajax({
 	    type: 'GET',
