@@ -31,7 +31,11 @@ function sortProperties(obj)
 	return sortable; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
 }
 
-var dateFormat = function () {
+
+/* GET /contacts */
+router.get('/', async function(req, res, next) {
+
+	var dateFormat = function () {
             var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
                 timezone =
                 /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g,
@@ -146,9 +150,6 @@ var dateFormat = function () {
             return dateFormat(this, mask, utc);
         };
 
-/* GET /contacts */
-router.get('/', async function(req, res, next) {
-  
 	
 	
   var rooms =[{"room":"chime",
@@ -333,6 +334,7 @@ var map1 = sortProperties(keyPoint);
 	  } 
 	    
 	    if(finalMap['time'] != undefined){
+		    console.log('----- time ----'+finalMap['time']);
 		    var splitData = finalMap['time'].substr(1).split(' ');
 		    var day = splitData[0].match(/\d+/g).map(Number);
 		    var month = splitData[1];
