@@ -26,7 +26,7 @@ router.get('/', async function(req, res, next) {
       // by given name
   
       const result = await client
-      .api('/me/people/?$search=Ravi')
+      .api('/me/people/?$search=Atul')
       .version("beta")
       .top(100)
       .get();
