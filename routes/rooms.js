@@ -31,7 +31,7 @@ router.get('/', async function(req, res, next) {
       var http = require('http');
       var body;
       const result = await client
-        http.get('https://graph.microsoft.com/beta/me/findRooms', function (response) {
+        http.get('http://graph.microsoft.com/beta/me/findRooms', function (response) {
         response.on('data', function (chunk) {
             body+=chunk;
         });
