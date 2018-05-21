@@ -28,7 +28,7 @@ router.get('/', async function(req, res, next) {
       const result = await client
       .api('/me/people/?$search=Atul Pawar')
       .version("beta")
-      .top(1)
+      .top(10)
       .get();
 
       parms.contacts = result.value;
