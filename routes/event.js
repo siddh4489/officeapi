@@ -107,7 +107,7 @@ var map1 = sortProperties(keyPoint);
       //console.log('---->'+result.value[0].userPrincipalName);	    
      }   
    
-/*      
+      
     var event = {
     "subject": finalMap['subject'],
     "body": {
@@ -136,7 +136,7 @@ var map1 = sortProperties(keyPoint);
 }
     
     console.log('Event Json----->'+JSON.stringify(event));
-    */
+    
       
       
      /* const result1 = await client
@@ -144,6 +144,7 @@ var map1 = sortProperties(keyPoint);
       .post(event, (err, res) => {
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });*/
+	    
          //console.log('-- email result--'+result);	    
           if(this.mailto != undefined){
            	resultData+= '<tr><td>To:</td><td>'+this.mailto+'</td></tr>';
@@ -170,12 +171,18 @@ var map1 = sortProperties(keyPoint);
 	  	resultData+= '<tr><td>Body:</td><td>'+this.mailbody+'</td></tr>'; 
 	  }
 	   if(stage == 'ready to send' && (myString === 'send' || myString === 'yes')){
+		  const result1 = await client
+		      .api('/me/events')
+		      .post(event, (err, res) => {
+			console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
+		       }); 
+		   
 		  bobmsg ='meeting set successfully with '+this.personName+'. Have a good day';
 		  stage = 'Initial';
 		  this.mailto = null;
 		  this.mailbody =null;
 		  this.mailsubject =null;
-		  resultData = 'Mail Sent Successfully'; 
+		  resultData = 'Meeting Set Successfully'; 
 	     } 
 	  if(bobmsg == undefined){
 		bobmsg ='Mail is ready to Send. Are you sure you want to send ?';  
