@@ -40,11 +40,11 @@ router.get('/', async function(req, res, next) {
   "name":"CR.PNEB2.2.Clarinet.10",
   "address":"cr.pneb2.2.clarinet.10@symantec.com"
   },
-  {"room":"clarinet",
+  {"room":"conga",
   "name":"CR.PNEB2.2.Conga.8",
   "address":"cr.pneb2.2.conga.8@symantec.com"
   },
-  {"room":"Melodica",
+  {"room":"melodica",
   "name":"CR.PNEB2.2.Melodica.16(VC)",
   "address":"cr.pneb2.2.melodica.16@symantec.com"
   }
@@ -150,19 +150,24 @@ var map1 = sortProperties(keyPoint);
         console.log(JSON.stringify(err)+'Event Response -> '+JSON.stringify(res));
        });*/
 	    
-         //console.log('-- email result--'+result);	    
+         console.log('wow-- this.mailto--'+this.mailto);	
+	    
           if(this.mailto != undefined){
            	resultData+= '<tr><td>To:</td><td>'+this.mailto+'</td></tr>';
 	   }else{
           	bobmsg ='Tell me email address';
 	   }
+	    
+	  console.log('wow-- this.mailsubject--'+this.mailsubject);
+	    
 	  if(finalMap['subject'] != undefined){
 	  	this.mailsubject=finalMap['subject']; 
 	  }
+	  console.log('wow-- this.room--'+finalMap['room']);  
 	  if(finalMap['room'] != undefined){
-		  
-		 for(i = 0; i< rooms.length; i++){    
-		 	if(rooms[i].name.includes(finalMap['room']) || rooms[i].name === (finalMap['room'])){
+		 for(i = 0; i< rooms.length; i++){
+		 	console.log('wow-- rooms[i].name--'+rooms[i].name);  
+		 	if(rooms[i].name === finalMap['room']){
 				this.roomadd=rooms[i].address;
 				this.roomname=rooms[i].name;
 		       }
@@ -179,6 +184,7 @@ var map1 = sortProperties(keyPoint);
 	  }else{
 		bobmsg =  'Please Help me with Subject line. It is required'
 	  }
+	    
 	  if(this.roomadd != undefined){
 	  		resultData+= '<tr><td>Conference Room:</td><td>'+this.roomname+'</td></tr>';
 			console.log('--room--'+this.roomname);
