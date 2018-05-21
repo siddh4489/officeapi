@@ -28,6 +28,7 @@ router.get('/', async function(req, res, next) {
       .version("beta")
       .top(1000)
       .get();*/
+      var http = require('http');
       var body;
       const result = await client
       http.get('/me/findRooms', function (response) {
