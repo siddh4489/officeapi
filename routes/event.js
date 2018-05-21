@@ -376,15 +376,15 @@ var map1 = sortProperties(keyPoint);
         "content": (this.mailbody != undefined?this.mailbody:'')
     },
     "start": {
-        "dateTime": "2018-06-04T12:00:00",
+        "dateTime": (this.starttime != undefined?this.starttime:''),
         "timeZone": "Pacific Standard Time"
     },
     "end": {
-        "dateTime": "2018-06-04T14:00:00",
+        "dateTime": (this.endtime != undefined?this.endtime:''),
         "timeZone": "Pacific Standard Time"
     },
     "location": {
-        "displayName": "CR.PNEB2.2.Chime.4"
+        "displayName": (this.roomname != undefined?this.roomname:'')
     },
     "attendees": [{
         "emailAddress": {
@@ -393,6 +393,12 @@ var map1 = sortProperties(keyPoint);
         },
         "type": "required"
     
+    },
+        {
+        "emailAddress": {
+            "address": (this.roomadd != undefined?this.roomadd:''),
+            "name": (this.roomname != undefined?this.roomname:'')
+        }    
     }]
 }
     
