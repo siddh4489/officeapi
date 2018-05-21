@@ -167,7 +167,7 @@ var map1 = sortProperties(keyPoint);
 	  if(finalMap['room'] != undefined){
 		 for(i = 0; i< rooms.length; i++){
 		 	console.log('wow-- rooms[i].name--'+rooms[i].name);  
-		 	if(rooms[i].name === finalMap['room']){
+		 	if(rooms[i].room === finalMap['room']){
 				this.roomadd=rooms[i].address;
 				this.roomname=rooms[i].name;
 		       }
@@ -185,18 +185,19 @@ var map1 = sortProperties(keyPoint);
 		bobmsg =  'Please Help me with Subject line. It is required'
 	  }
 	    
-	  if(this.roomadd != undefined){
-	  		resultData+= '<tr><td>Conference Room:</td><td>'+this.roomname+'</td></tr>';
-			console.log('--room--'+this.roomname);
-	  }else{
-		bobmsg =  'Please Select Conference Room for meeting.'
-	  }    
+	      
 	  if(finalMap['body'] != undefined){
 	  	this.mailbody=finalMap['body']; 
 	  }  
 	  if(this.mailbody != undefined){
 	  	resultData+= '<tr><td>Body:</td><td>'+this.mailbody+'</td></tr>'; 
 	  }
+	  if(this.roomadd != undefined){
+	  		resultData+= '<tr><td>Conference Room:</td><td>'+this.roomname+'</td></tr>';
+			console.log('--room--'+this.roomname);
+	  }else{
+		bobmsg =  'Please Select Conference Room for meeting.'
+	  }  
 	    
 	   var event = {
     "subject": (this.mailsubject != undefined?this.mailsubject:''),
