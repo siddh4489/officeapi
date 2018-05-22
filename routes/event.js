@@ -204,6 +204,8 @@ router.get('/', async function(req, res, next) {
 		     this.personName = null;
 		     this.roomadd = null;
 		     this.roomname = null;
+		     this.starttime = null;
+	             this.endtime = null;
 	       }
 	    
     console.log('----stage---'+stage);	    
@@ -314,7 +316,7 @@ var map1 = sortProperties(keyPoint);
 	  	resultData+= '<tr><td>Subject:</td><td>'+this.mailsubject+'</td></tr>';
 		console.log('--in subject 2--'+resultData);
 	  }else{
-		bobmsg =  'Please Help me with Subject line. It is required'
+		bobmsg =  'Please Help me with Subject line.'
 	  }
 	    
 	  if(finalMap['body'] != undefined){
@@ -416,6 +418,11 @@ var map1 = sortProperties(keyPoint);
 		  this.mailto = null;
 		  this.mailbody =null;
 		  this.mailsubject =null;
+		  this.starttime = null;
+	          this.endtime = null; 
+		  this.roomname= null;
+		  this.roomadd =null; 
+		
 		  resultData = 'Meeting Set Successfully'; 
 	     } 
 	  if(bobmsg == undefined){
