@@ -408,42 +408,26 @@ router.get('/', async function (req, res, next) {
             }
 
             console.log('Event Json----->' + JSON.stringify(event));
-            var postDataJSON = '{ "attendees": [ { "type": "required", "emailAddress": { "address": "' + this.mailto + '" } } ], "locationConstraint": { "isRequired": "false", "suggestLocation": "false", "locations": [ { "resolveAvailability": "false", "locationEmailAddress": "' + this.roomadd + '" } ] }, "timeConstraint": { "activityDomain":"work", "timeslots": [ { "start": { "dateTime": "' + this.starttime + '", "timeZone": "UTC" }, "end": { "dateTime": "' + this.endtime + '", "timeZone": "UTC" } } ] }, "meetingDuration": "PT60M", "returnSuggestionReasons": "false", "minimumAttendeePercentage": "100" }';
 
-            const meetingResult = await client
-                .api('/me/findMeetingTimes')
-                .version("beta")
-                .get();
+            if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
+                const result1 = await client
+                    .api('/me/events')
+                    .post(event, (err, res) => {
+                        console.log(JSON.stringify(err) + 'Event Response -> ' + JSON.stringify(res));
+                    });
 
-            if (meetingResult.emptySuggestionsReason !== undefined) {
-                if (meetingResult.emptySuggestionsReason == '') { // Positive Response Available From Server
-                    console.log(meetingResult);
-                    if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
-                        const result1 = await client
-                            .api('/me/events')
-                            .post(event, (err, res) => {
-                                console.log(JSON.stringify(err) + 'Event Response -> ' + JSON.stringify(res));
-                            });
+                bobmsg = 'meeting set successfully with ' + this.personName + '. Have a good day';
+                stage = 'Initial';
+                this.mailto = null;
+                this.mailbody = null;
+                this.mailsubject = null;
+                this.starttime = null;
+                this.endtime = null;
+                this.roomname = null;
+                this.roomadd = null;
 
-                        bobmsg = 'meeting set successfully with ' + this.personName + '. Have a good day';
-                        stage = 'Initial';
-                        this.mailto = null;
-                        this.mailbody = null;
-                        this.mailsubject = null;
-                        this.starttime = null;
-                        this.endtime = null;
-                        this.roomname = null;
-                        this.roomadd = null;
-
-                        resultData = 'Meeting Set Successfully';
-                    }
-                } else {
-                    if (bobmsg == undefined) {
-                        bobmsg = 'Attendees unavailable at this time';
-                    }
-                }
+                resultData = 'Meeting Set Successfully';
             }
-
             if (bobmsg == undefined) {
                 bobmsg = 'Mail is ready to Send. Are you sure you want to send ?';
                 stage = 'ready to send';
