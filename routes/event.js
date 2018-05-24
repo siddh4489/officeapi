@@ -424,8 +424,34 @@ router.get('/', async function (req, res, next) {
               console.log(meetingResult.emptySuggestionsReason+'---- Result meetingResult ----->' + JSON.stringify(meetingResult));
              
               });
+               
+               if (meetingresponse == '') { // Positive Response Available From Server
+                    if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
+                        const result1 = await client
+                            .api('/me/events')
+                            .post(event, (err, res) => {
+                                console.log(JSON.stringify(err) + 'Event Response -> ' + JSON.stringify(res));
+                            });
+
+                        bobmsg = 'meeting set successfully with ' + this.personName + '. Have a good day';
+                        stage = 'Initial';
+                        this.mailto = null;
+                        this.mailbody = null;
+                        this.mailsubject = null;
+                        this.starttime = null;
+                        this.endtime = null;
+                        this.roomname = null;
+                        this.roomadd = null;
+
+                        resultData = 'Meeting Set Successfully';
+                    }
+                } else {
+                    if (bobmsg == undefined) {
+                        bobmsg = 'Attendees unavailable at this time';
+                    }
+                }
             
-                
+           }     
             
                      
               
