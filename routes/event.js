@@ -408,7 +408,7 @@ router.get('/', async function (req, res, next) {
             }
 
             console.log('Event Json----->' + JSON.stringify(event));
-            console.log(' captain america ----->');
+            console.log(' captain america ----->'+this.starttime);
 
             // Meeting Booking Validation
            if (this.starttime != undefined) { 
