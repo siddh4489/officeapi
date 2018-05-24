@@ -417,10 +417,9 @@ router.get('/', async function (req, res, next) {
             const meetingResult = await client
                 .api('/me/findMeetingTimes')
                 .version("beta")
-                .get();
-            
-            
-              console.log('----- Hulk -----');
+                .post(postDataJSON, (err, meetingResult) => {
+                    
+                    console.log('----- Hulk -----');
               console.log('---- Result meetingResult ----->' + meetingResult);
 
             if (meetingResult.emptySuggestionsReason !== undefined) {
@@ -453,6 +452,11 @@ router.get('/', async function (req, res, next) {
             }else{
                 console.log('-----availibility else-----');
             }
+             
+              });
+            
+            
+              
 
             if (bobmsg == undefined) {
                 console.log('---- bob ---ready');
