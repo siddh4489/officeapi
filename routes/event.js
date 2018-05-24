@@ -413,16 +413,18 @@ router.get('/', async function (req, res, next) {
             // Meeting Booking Validation
             var postDataJSON = '{ "attendees": [ { "type": "required", "emailAddress": { "address": "' + this.mailto + '" } } ], "locationConstraint": { "isRequired": "false", "suggestLocation": "false", "locations": [ { "resolveAvailability": "false", "locationEmailAddress": "' + this.roomadd + '" } ] }, "timeConstraint": { "activityDomain":"work", "timeslots": [ { "start": { "dateTime": "' + this.starttime + '", "timeZone": "UTC" }, "end": { "dateTime": "' + this.endtime + '", "timeZone": "UTC" } } ] }, "meetingDuration": "PT60M", "returnSuggestionReasons": "false", "minimumAttendeePercentage": "100" }';
             console.log(' Iron Man ----->');
-
+            var meetingresponse;
             const meetingResult = await client
                 .api('/me/findMeetingTimes')
                 .version("beta")
                 .post(postDataJSON, (err, meetingResult) => {
-                    
+                     meetingresponse = meetingResult;     
                     console.log('----- Hulk -----');
               console.log('---- Result meetingResult ----->' + meetingResult);
-
-            if (meetingResult.emptySuggestionsReason !== undefined) {
+             
+              });
+            
+             if (meetingresponse.emptySuggestionsReason !== undefined) {
                 if (meetingResult.emptySuggestionsReason == '') { // Positive Response Available From Server
                     console.log(meetingResult);
                     if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
@@ -452,9 +454,7 @@ router.get('/', async function (req, res, next) {
             }else{
                 console.log('-----availibility else-----');
             }
-             
-              });
-            
+
             
               
 
