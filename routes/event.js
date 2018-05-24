@@ -411,6 +411,7 @@ router.get('/', async function (req, res, next) {
             console.log(' captain america ----->');
 
             // Meeting Booking Validation
+           if (this.starttime != undefined) { 
             var postDataJSON = '{ "attendees": [ { "type": "required", "emailAddress": { "address": "' + this.mailto + '" } } ], "locationConstraint": { "isRequired": "false", "suggestLocation": "false", "locations": [ { "resolveAvailability": "false", "locationEmailAddress": "' + this.roomadd + '" } ] }, "timeConstraint": { "activityDomain":"work", "timeslots": [ { "start": { "dateTime": "' + this.starttime + '", "timeZone": "UTC" }, "end": { "dateTime": "' + this.endtime + '", "timeZone": "UTC" } } ] }, "meetingDuration": "PT60M", "returnSuggestionReasons": "false", "minimumAttendeePercentage": "100" }';
             console.log(' Iron Man ----->');
             var meetingresponse;
@@ -455,7 +456,7 @@ router.get('/', async function (req, res, next) {
                 console.log('-----availibility else-----');
             }
 
-            
+           }            
               
 
             if (bobmsg == undefined) {
