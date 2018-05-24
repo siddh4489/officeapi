@@ -422,14 +422,10 @@ router.get('/', async function (req, res, next) {
                      meetingresponse = meetingResult.emptySuggestionsReason;     
                     console.log(err+'----- Hulk error-----'+JSON.stringify(err));
               console.log(meetingResult.emptySuggestionsReason+'---- Result meetingResult ----->' + JSON.stringify(meetingResult));
-             
-              });
-               console.log('--- XXXX  --'+meetingresponse);
-               if (meetingresponse == '') { // Positive Response Available From Server
+                    if (meetingResult.emptySuggestionsReason == '') { // Positive Response Available From Server
                console.log('--- YYYY  --'+meetingresponse);
 
-                    bobmsg = 'Mail is ready to Send. Are you sure you want to send ?';
-                    stage = 'ready to send';
+                    
                     if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
                         const result1 = await client
                             .api('/me/events')
@@ -456,7 +452,10 @@ router.get('/', async function (req, res, next) {
                     }
                 }
             
-           }     
+           }   
+             
+              });
+                 
             
                      
               
