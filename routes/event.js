@@ -408,8 +408,11 @@ router.get('/', async function (req, res, next) {
             }
 
             console.log('Event Json----->' + JSON.stringify(event));
+            console.log(' captain america ----->');
+
             // Meeting Booking Validation
             var postDataJSON = '{ "attendees": [ { "type": "required", "emailAddress": { "address": "' + this.mailto + '" } } ], "locationConstraint": { "isRequired": "false", "suggestLocation": "false", "locations": [ { "resolveAvailability": "false", "locationEmailAddress": "' + this.roomadd + '" } ] }, "timeConstraint": { "activityDomain":"work", "timeslots": [ { "start": { "dateTime": "' + this.starttime + '", "timeZone": "UTC" }, "end": { "dateTime": "' + this.endtime + '", "timeZone": "UTC" } } ] }, "meetingDuration": "PT60M", "returnSuggestionReasons": "false", "minimumAttendeePercentage": "100" }';
+            console.log(' Iron Man ----->');
 
             const meetingResult = await client
                 .api('/me/findMeetingTimes')
@@ -447,9 +450,12 @@ router.get('/', async function (req, res, next) {
                         bobmsg = 'Attendees unavailable at this time';
                     }
                 }
+            }else{
+                console.log('-----availibility else-----');
             }
 
             if (bobmsg == undefined) {
+                console.log('---- bob ---ready');
                 bobmsg = 'Mail is ready to Send. Are you sure you want to send ?';
                 stage = 'ready to send';
             }
