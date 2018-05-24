@@ -422,9 +422,7 @@ router.get('/', async function (req, res, next) {
                      meetingresponse = meetingResult.emptySuggestionsReason;     
                     console.log(err+'----- Hulk error-----'+JSON.stringify(err));
               console.log(meetingResult.emptySuggestionsReason+'---- Result meetingResult ----->' + JSON.stringify(meetingResult));
-                    if(meetingResult.emptySuggestionsReason ==){
-                       
-                     }  
+                    
              
               });
                console.log('--- XXXX  --'+meetingresponse);
