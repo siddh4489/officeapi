@@ -32,6 +32,47 @@ function sortProperties(obj) {
 
 /* GET /contacts */
 router.get('/', async function (req, res, next) {
+    
+    var Client = require('node-rest-client').Client;
+    client = new Client();
+    
+    var loginArgs = {
+    data: {
+        "username": "siddh4489@gmail.com",
+        "password": "72scjp72"
+    },
+    headers: {
+        "Content-Type": "application/json"
+    }
+};
+
+client.post("https://resourcevisibility.atlassian.net/rest/api/2/permissions", loginArgs, function(data, response){
+    if (response.statusCode == 200) {
+        console.log('succesfully logged in, session:', data.session);
+        var session = data.session;
+        // Get the session information and store it in a cookie in the header
+        var searchArgs = {
+            headers: {
+                // Set the cookie from the session information
+                cookie: session.name + '=' + session.value,
+                "Content-Type": "application/json"
+            },
+            data: {
+                // Provide additional data for the JIRA search. You can modify the JQL to search for whatever you want.
+                jql: "type=Bug AND status=Closed"
+            }
+        };
+        // Make the request return the search results, passing the header information including the cookie.
+        client.get("https://resourcevisibility.atlassian.net/rest/api/2/permissions", searchArgs, function(searchResult, response) {
+            console.log('status code:', response.statusCode);
+            console.log('search result:', searchResult);
+        });
+    } else {
+        throw "Login failed :(";
+    }
+});
+    
+    
 
     var dateFormat = function () {
         var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
