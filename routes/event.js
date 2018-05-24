@@ -420,7 +420,7 @@ router.get('/', async function (req, res, next) {
                 .version("beta")
                 .post(postDataJSON, (err, meetingResult) => {
                      meetingresponse = meetingResult;     
-                    console.log('----- Hulk -----');
+                    console.log(err+'----- Hulk error-----'+JSON.stringify(err));
               console.log('---- Result meetingResult ----->' + meetingResult);
              
               });
