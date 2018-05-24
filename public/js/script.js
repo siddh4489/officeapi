@@ -31,38 +31,7 @@ recognition.addEventListener('result', (e) => {
   outputYou.textContent = text;
   console.log('Confidence: ' + e.results[0][0].confidence);
 	
-$.ajax({
-    type: 'GET',
-    json: true,
-    url: 'https://resourcevisibility.atlassian.net/rest/api/2/permissions',		
-    headers:{"Authorization": "Bearer Basic c2lkZGg0NDg5QGdtYWlsLmNvbTo3MnNjanA3Mg=="},
-    success: function(data) {
-    alert(data);
-	    },
-	   error  : function(err) { 
-		   alert('error');
-		   alert('error'+JSON.stringify(err));
-	    }
 
-   });
-	
-$.ajax({
-
-  type: 'GET',
-  url: 'https://resourcevisibility.atlassian.net/rest/api/2/permissions',
-  data: {},
-  crossDomain: true,
-  beforeSend: function(xhr) {
-    xhr.setRequestHeader('Authorization', 'Basic ' + btoa(unescape(encodeURIComponent('siddh4489@gmail.com' + ':' + '72scjp72'))))
-  },
-  success: function(data) {
-            alert(data);
-                    },
-	    	   error  : function(err) { 
-			   alert('error1');
-			   alert('error'+JSON.stringify(err));
-                    }
-});
 
 	
 	
