@@ -424,7 +424,12 @@ router.get('/', async function (req, res, next) {
               console.log(meetingResult.emptySuggestionsReason+'---- Result meetingResult ----->' + JSON.stringify(meetingResult));
              
               });
-               if (meetingresponse == ' ') { // Positive Response Available From Server
+               console.log('--- XXXX  --'+meetingresponse);
+               if (meetingresponse == '') { // Positive Response Available From Server
+               console.log('--- YYYY  --'+meetingresponse);
+
+                    bobmsg = 'Mail is ready to Send. Are you sure you want to send ?';
+                    stage = 'ready to send';
                     if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
                         const result1 = await client
                             .api('/me/events')
@@ -444,6 +449,7 @@ router.get('/', async function (req, res, next) {
 
                         resultData = 'Meeting Set Successfully';
                     }
+                   
                 } else {
                     if (bobmsg == undefined) {
                         bobmsg = 'Attendees unavailable at this time';
