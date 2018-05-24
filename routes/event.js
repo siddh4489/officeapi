@@ -424,7 +424,6 @@ router.get('/', async function (req, res, next) {
               console.log(meetingResult.emptySuggestionsReason+'---- Result meetingResult ----->' + JSON.stringify(meetingResult));
              
               });
-               console.log('Lenght -->'+meetingresponse.length);
                if (meetingresponse == ' ') { // Positive Response Available From Server
                     if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
                         const result1 = await client
