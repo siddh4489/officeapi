@@ -32,6 +32,10 @@ function sortProperties(obj) {
 
 /* GET /contacts */
 router.get('/', async function (req, res, next) {
+    
+    
+    
+    
 
     var dateFormat = function () {
         var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZ]|"[^"]*"|'[^']*'/g,
@@ -408,62 +412,27 @@ router.get('/', async function (req, res, next) {
             }
 
             console.log('Event Json----->' + JSON.stringify(event));
-            console.log(' captain america ----->'+this.starttime);
 
-            // Meeting Booking Validation
-           if (this.starttime != undefined) { 
-            var postDataJSON = {"attendees": [ { "type": "required", "emailAddress": { "address":this.mailto} } ], "locationConstraint": { "isRequired": "false", "suggestLocation": "false", "locations": [ { "resolveAvailability": "false", "locationEmailAddress":this.roomadd} ] }, "timeConstraint": { "activityDomain":"work", "timeslots": [ { "start": { "dateTime":this.starttime, "timeZone": "UTC" }, "end": { "dateTime":this.endtime, "timeZone": "UTC" } } ] }, "meetingDuration": "PT60M", "returnSuggestionReasons": "false", "minimumAttendeePercentage": "100" }
-            console.log(' Iron Man ----->'+JSON.stringify(postDataJSON));
-            var meetingresponse;
-            const meetingResult = await client
-                .api('/me/findMeetingTimes')
-                .version("beta")
-                .post(postDataJSON, (err, meetingResult) => {
-                     meetingresponse = meetingResult.emptySuggestionsReason;     
-                    console.log(err+'----- Hulk error-----'+JSON.stringify(err));
-              console.log(meetingResult.emptySuggestionsReason+'---- Result meetingResult ----->' + JSON.stringify(meetingResult));
-                    
-             
-              });
-               console.log('--- XXXX  --'+meetingresponse);
-               if (meetingresponse == '') { // Positive Response Available From Server
-               console.log('--- YYYY  --'+meetingresponse);
+            if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
+                const result1 = await client
+                    .api('/me/events')
+                    .post(event, (err, res) => {
+                        console.log(JSON.stringify(err) + 'Event Response -> ' + JSON.stringify(res));
+                    });
 
-                    bobmsg = 'Mail is ready to Send. Are you sure you want to send ?';
-                    stage = 'ready to send';
-                    if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
-                        const result1 = await client
-                            .api('/me/events')
-                            .post(event, (err, res) => {
-                                console.log(JSON.stringify(err) + 'Event Response -> ' + JSON.stringify(res));
-                            });
+                bobmsg = 'meeting set successfully with ' + this.personName + '. Have a good day';
+                stage = 'Initial';
+                this.mailto = null;
+                this.mailbody = null;
+                this.mailsubject = null;
+                this.starttime = null;
+                this.endtime = null;
+                this.roomname = null;
+                this.roomadd = null;
 
-                        bobmsg = 'meeting set successfully with ' + this.personName + '. Have a good day';
-                        stage = 'Initial';
-                        this.mailto = null;
-                        this.mailbody = null;
-                        this.mailsubject = null;
-                        this.starttime = null;
-                        this.endtime = null;
-                        this.roomname = null;
-                        this.roomadd = null;
-
-                        resultData = 'Meeting Set Successfully';
-                    }
-                   
-                } else {
-                    if (bobmsg == undefined) {
-                        bobmsg = 'Attendees unavailable at this time';
-                    }
-                }
-            
-           }     
-            
-                     
-              
-
+                resultData = 'Meeting Set Successfully';
+            }
             if (bobmsg == undefined) {
-                console.log('---- bob ---ready');
                 bobmsg = 'Mail is ready to Send. Are you sure you want to send ?';
                 stage = 'ready to send';
             }
