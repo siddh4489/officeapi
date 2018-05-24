@@ -421,7 +421,7 @@ router.get('/', async function (req, res, next) {
                 .post(postDataJSON, (err, meetingResult) => {
                      meetingresponse = meetingResult;     
                     console.log(err+'----- Hulk error-----'+JSON.stringify(err));
-              console.log('---- Result meetingResult ----->' + meetingResult);
+              console.log('---- Result meetingResult ----->' + JSON.stringify(meetingResult));
              
               });
             
