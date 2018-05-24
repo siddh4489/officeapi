@@ -419,14 +419,13 @@ router.get('/', async function (req, res, next) {
                 .api('/me/findMeetingTimes')
                 .version("beta")
                 .post(postDataJSON, (err, meetingResult) => {
-                     meetingresponse = meetingResult;     
+                     meetingresponse = meetingResult.emptySuggestionsReason;     
                     console.log(err+'----- Hulk error-----'+JSON.stringify(err));
-              console.log('---- Result meetingResult ----->' + JSON.stringify(meetingResult));
+              console.log(meetingResult.emptySuggestionsReason+'---- Result meetingResult ----->' + JSON.stringify(meetingResult));
              
               });
             
-             if (meetingresponse.emptySuggestionsReason !== undefined) {
-                if (meetingResult.emptySuggestionsReason == '') { // Positive Response Available From Server
+                if (meetingresponse == '') { // Positive Response Available From Server
                     console.log(meetingResult);
                     if (stage == 'ready to send' && (myString === 'send' || myString === 'yes')) {
                         const result1 = await client
@@ -452,11 +451,8 @@ router.get('/', async function (req, res, next) {
                         bobmsg = 'Attendees unavailable at this time';
                     }
                 }
-            }else{
-                console.log('-----availibility else-----');
-            }
-
-           }            
+            
+                     
               
 
             if (bobmsg == undefined) {
