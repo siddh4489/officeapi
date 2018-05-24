@@ -415,6 +415,9 @@ router.get('/', async function (req, res, next) {
                 .api('/me/findMeetingTimes')
                 .version("beta")
                 .get();
+            
+            
+              console.log('----- Hulk -----');
               console.log('---- Result meetingResult ----->' + meetingResult);
 
             if (meetingResult.emptySuggestionsReason !== undefined) {
