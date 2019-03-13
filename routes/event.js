@@ -299,7 +299,7 @@ router.get('/', async function (req, res, next) {
             var bobmsg;
              
             const resultme = await client
-                    .api('/me/people')
+                    .api('/me/people/')
                     .version("beta")
                     .top(1)
                     .get();
