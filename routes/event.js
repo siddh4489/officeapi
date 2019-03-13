@@ -303,8 +303,8 @@ router.get('/', async function (req, res, next) {
                     .version("beta")
                     .top(1)
                     .get();
-               console.log('-- resultme--sid 0' + resultme.value.length);
-               console.log('--- wow ---'+resultme.value[0].mail);
+               console.log('-- resultme--sid 0' + resultme.value);
+               console.log('--- wow ---'+resultme.value.mail);
             if (emailSearch !== undefined && emailSearch != ' ') {
 
                 console.log('-- email search 1--' + emailSearch);
