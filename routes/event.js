@@ -156,77 +156,77 @@ router.get('/', async function (req, res, next) {
 
     var rooms = [{
             "room": "alaska",
-            "name": "Alaska",
+            "name": "alaska",
             "address": "alaska@infovisionlabs.com"
         },
         {
             "room": "alps",
-            "name": "Alps",
+            "name": "alps",
             "address": "alps@infovisionlabs.com"
         },
         {
             "room": "amazon",
-            "name": "Amazon",
+            "name": "amazon",
             "address": "amazon@infovisionlabs.com"
         },
         {
             "room": "antartica",
-            "name": "Antartica",
+            "name": "antartica",
             "address": "antartica@infovisionlabs.com"
         },
         {
             "room": "everest",
-            "name": "Everest",
+            "name": "everest",
             "address": "everest@infovisionlabs.com"
         },
         {
             "room": "habitat",
-            "name": "Habitat",
+            "name": "habitat",
             "address": "habitat@infovisionlabs.com"
         },
         {
             "room": "himalaya",
-            "name": "Himalaya",
+            "name": "himalaya",
             "address": "himalaya@infovisionlabs.com"
         },
         {
             "room": "horizon",
-            "name": "Horizon",
+            "name": "horizon",
             "address": "horizon@infovisionlabs.com"
         },
         {
             "room": "machaan",
-            "name": "Machaan",
+            "name": "machaan",
             "address": "machaan@infovisionlabs.com"
         },
         {
             "room": "nile",
-            "name": "Nile",
+            "name": "nile",
             "address": "nile@infovisionlabs.com"
         },
         {
             "room": "nilgiri",
-            "name": "Nilgiri",
+            "name": "nilgiri",
             "address": "nilgiri@infovisionlabs.com"
         },
         {
             "room": "sahara",
-            "name": "Sahara",
+            "name": "sahara",
             "address": "sahara@infovisionlabs.com"
         },
         {
             "room": "sahyadri",
-            "name": "Sahyadri",
+            "name": "sahyadri",
             "address": "sahyadri@infovisionlabs.com"
         },
         {
             "room": "sunderban",
-            "name": "Sunderban",
+            "name": "sunderban",
             "address": "sunderban@infovisionlabs.com"
         },
         {
             "room": "thar",
-            "name": "Thar",
+            "name": "thar",
             "address": "thar@infovisionlabs.com"
         }
     ];
@@ -237,10 +237,10 @@ router.get('/', async function (req, res, next) {
             event: true
         }
     };
-
+    console.log('----- req.cookies ---' + req.cookies);
     const accessToken = await authHelper.getAccessToken(req.cookies, res);
     const userName = req.cookies.graph_user_name;
-
+    console.log('----- userName ---' + userName);
     if (accessToken && userName) {
         parms.user = userName;
 
@@ -306,7 +306,7 @@ router.get('/', async function (req, res, next) {
                     .version("beta")
                     .top(1)
                     .get();
-
+               console.log('-- Result--' + result);
                 if (result.value[0] !== undefined) {
                     console.log('--out mail --' + stage);
                     console.log('--out mail 1--' + this.mailto);
