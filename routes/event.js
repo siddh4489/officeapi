@@ -299,12 +299,11 @@ router.get('/', async function (req, res, next) {
             var bobmsg;
              
             const resultme = await client
-                    .api('/me/people/')
+                    .api('/me/')
                     .version("beta")
                     .top(1)
                     .get();
                console.log('-- resultme--sid 0' + resultme.value[0]);
-               console.log('-- resultme--sid 1' + resultme.value[1]);
             
             if (emailSearch !== undefined && emailSearch != ' ') {
 
