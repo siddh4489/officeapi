@@ -298,18 +298,18 @@ router.get('/', async function (req, res, next) {
             //var mailbody;
             var bobmsg;
              
-            const resultme = await client
-                    .api('/me/')
-                    .version("beta")
-                    .top(1)
-                    .get();
-               console.log('-- resultme--sid 0' + resultme);
-               console.log('--- wow ---'+JSON.stringify(resultme));
+           // const resultme = await client
+           //         .api('/me/')
+           //         .version("beta")
+           //         .top(1)
+           //         .get();
+           //    console.log('-- resultme--sid 0' + resultme);
+           //    console.log('--- wow ---'+JSON.stringify(resultme));
             if (emailSearch !== undefined && emailSearch != ' ') {
 
                 console.log('-- email search 1--' + emailSearch);
                 const result = await client
-                    .api('/me/people/?$search=nikhil')
+                    .api('/me/people/)
                     .version("v1.0")
                     .top(1)
                     .get();
@@ -512,8 +512,10 @@ router.get('/', async function (req, res, next) {
             });
 
         } catch (err) {
-            console.log('--err---' + err.message);
-            console.log('--err stack--' + err.stack);
+            console.log('--err---1' + err);
+            console.log('--err---2' + err.message);
+            console.log('--err---3' + err.code);
+            console.log('--err---4' + err.stack);
             parms.message = 'Error retrieving contacts';
             parms.error = {
                 status: `${err.code}: ${err.message}`
