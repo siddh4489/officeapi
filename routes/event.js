@@ -155,78 +155,78 @@ router.get('/', async function (req, res, next) {
 
 
     var rooms = [{
-            "room": "alaska",
-            "name": "alaska",
+            "room": "Alaska",
+            "name": "Alaska",
             "address": "alaska@infovisionlabs.com"
         },
         {
-            "room": "alps",
-            "name": "alps",
+            "room": "Alps",
+            "name": "Alps",
             "address": "alps@infovisionlabs.com"
         },
         {
-            "room": "amazon",
-            "name": "amazon",
+            "room": "Amazon",
+            "name": "Amazon",
             "address": "amazon@infovisionlabs.com"
         },
         {
-            "room": "antartica",
-            "name": "antartica",
+            "room": "Antartica",
+            "name": "Antartica",
             "address": "antartica@infovisionlabs.com"
         },
         {
-            "room": "everest",
-            "name": "everest",
+            "room": "Everest",
+            "name": "Everest",
             "address": "everest@infovisionlabs.com"
         },
         {
-            "room": "habitat",
-            "name": "habitat",
+            "room": "Habitat",
+            "name": "Habitat",
             "address": "habitat@infovisionlabs.com"
         },
         {
-            "room": "himalaya",
-            "name": "himalaya",
+            "room": "Himalaya",
+            "name": "Himalaya",
             "address": "himalaya@infovisionlabs.com"
         },
         {
-            "room": "horizon",
-            "name": "horizon",
+            "room": "Horizon",
+            "name": "Horizon",
             "address": "horizon@infovisionlabs.com"
         },
         {
-            "room": "machaan",
-            "name": "machaan",
+            "room": "Machaan",
+            "name": "Machaan",
             "address": "machaan@infovisionlabs.com"
         },
         {
-            "room": "nile",
-            "name": "nile",
+            "room": "Nile",
+            "name": "Nile",
             "address": "nile@infovisionlabs.com"
         },
         {
-            "room": "nilgiri",
-            "name": "nilgiri",
+            "room": "Nilgiri",
+            "name": "Nilgiri",
             "address": "nilgiri@infovisionlabs.com"
         },
         {
-            "room": "sahara",
-            "name": "sahara",
+            "room": "Sahara",
+            "name": "Sahara",
             "address": "sahara@infovisionlabs.com"
         },
         {
-            "room": "sahyadri",
-            "name": "sahyadri",
+            "room": "Sahyadri",
+            "name": "Sahyadri",
             "address": "sahyadri@infovisionlabs.com"
         },
         {
-            "room": "sunderban",
-            "name": "sunderban",
+            "room": "Sunderban",
+            "name": "Sunderban",
             "address": "sunderban@infovisionlabs.com"
         },
         {
-            "room": "thar",
-            "name": "thar",
+            "room": "Thar",
+            "name": "Thar",
             "address": "thar@infovisionlabs.com"
         }
     ];
