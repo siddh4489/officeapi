@@ -309,8 +309,8 @@ router.get('/', async function (req, res, next) {
 
                 console.log('-- email search 1--' + emailSearch);
                 const result = await client
-                    .api('/me/people/?$search=' + emailSearch)
-                    .version("beta")
+                    .api('/me/people/?$search=nikhil')
+                    .version("v1.0")
                     .top(1)
                     .get();
                console.log('-- Result--' + result);
