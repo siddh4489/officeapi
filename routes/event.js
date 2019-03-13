@@ -155,24 +155,79 @@ router.get('/', async function (req, res, next) {
 
 
     var rooms = [{
-            "room": "chime",
-            "name": "cr.pneb2.2.chime.4",
-            "address": "cr.pneb2.2.chime.4@symantec.com"
+            "room": "alaska",
+            "name": "Alaska",
+            "address": "alaska@infovisionlabs.com"
         },
         {
-            "room": "clarinet",
-            "name": "CR.PNEB2.2.Clarinet.10",
-            "address": "cr.pneb2.2.clarinet.10@symantec.com"
+            "room": "alps",
+            "name": "Alps",
+            "address": "alps@infovisionlabs.com"
         },
         {
-            "room": "conga",
-            "name": "CR.PNEB2.2.Conga.8",
-            "address": "cr.pneb2.2.conga.8@symantec.com"
+            "room": "amazon",
+            "name": "Amazon",
+            "address": "amazon@infovisionlabs.com"
         },
         {
-            "room": "melodica",
-            "name": "CR.PNEB2.2.Melodica.16(VC)",
-            "address": "cr.pneb2.2.melodica.16@symantec.com"
+            "room": "antartica",
+            "name": "Antartica",
+            "address": "antartica@infovisionlabs.com"
+        },
+        {
+            "room": "everest",
+            "name": "Everest",
+            "address": "everest@infovisionlabs.com"
+        },
+        {
+            "room": "habitat",
+            "name": "Habitat",
+            "address": "habitat@infovisionlabs.com"
+        },
+        {
+            "room": "himalaya",
+            "name": "Himalaya",
+            "address": "himalaya@infovisionlabs.com"
+        },
+        {
+            "room": "horizon",
+            "name": "Horizon",
+            "address": "horizon@infovisionlabs.com"
+        },
+        {
+            "room": "machaan",
+            "name": "Machaan",
+            "address": "machaan@infovisionlabs.com"
+        },
+        {
+            "room": "nile",
+            "name": "Nile",
+            "address": "nile@infovisionlabs.com"
+        },
+        {
+            "room": "nilgiri",
+            "name": "Nilgiri",
+            "address": "nilgiri@infovisionlabs.com"
+        },
+        {
+            "room": "sahara",
+            "name": "Sahara",
+            "address": "sahara@infovisionlabs.com"
+        },
+        {
+            "room": "sahyadri",
+            "name": "Sahyadri",
+            "address": "sahyadri@infovisionlabs.com"
+        },
+        {
+            "room": "sunderban",
+            "name": "Sunderban",
+            "address": "sunderban@infovisionlabs.com"
+        },
+        {
+            "room": "thar",
+            "name": "Thar",
+            "address": "thar@infovisionlabs.com"
         }
     ];
 
