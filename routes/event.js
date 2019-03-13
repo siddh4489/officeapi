@@ -297,7 +297,14 @@ router.get('/', async function (req, res, next) {
             //var mailsubject;
             //var mailbody;
             var bobmsg;
-
+             
+            const resultme = await client
+                    .api('/me/)
+                    .version("beta")
+                    .top(1)
+                    .get();
+               console.log('-- resultme--' + resultme);
+            
             if (emailSearch !== undefined && emailSearch != ' ') {
 
                 console.log('-- email search 1--' + emailSearch);
