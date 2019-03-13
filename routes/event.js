@@ -303,8 +303,8 @@ router.get('/', async function (req, res, next) {
                     .version("beta")
                     .top(1)
                     .get();
-               console.log('-- resultme--sid 0' + resultme.value[0]);
-            
+               console.log('-- resultme--sid 0' + resultme.value.length);
+               console.log('--- wow ---'+resultme.value[0].mail);
             if (emailSearch !== undefined && emailSearch != ' ') {
 
                 console.log('-- email search 1--' + emailSearch);
@@ -314,6 +314,7 @@ router.get('/', async function (req, res, next) {
                     .top(1)
                     .get();
                console.log('-- Result--' + result);
+                
                 if (result.value[0] !== undefined) {
                     console.log('--out mail --' + stage);
                     console.log('--out mail 1--' + this.mailto);
